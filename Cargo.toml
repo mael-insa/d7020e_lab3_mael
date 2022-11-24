@@ -9,6 +9,5 @@ edition = "2021"
 # symex_lib = { git = "https://github.com/norlen/symex/crates/symex_lib", version = "1.0" }
 # valid_derive = { git = "https://github.com/norlen/symex/crates/valid_derive", version = "1.0" }
 
-symex = { git = "https://github.com/norlen/symex" }
 symex_lib = { git = "https://github.com/norlen/symex" }
 valid_derive = { git = "https://github.com/norlen/symex" }
