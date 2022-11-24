@@ -24,4 +24,13 @@ Alternatively, if you are interested in looking into the source code/and or play
 
 Due to LLVM dependencies the current implementation is limited to Rust < 1.64. cd to the folder where you want to run cargo symex from and override the Rust version to be used as below:
 
+```shell
+cd <folder>
+rustup override set 1.64
+```
+
 ## Exercises
+
+### Ex1
+
+In this exercise you will get familiar with the `symex` tool. It is still fairly primitive but shows the principles of symbolic execution, which is the point here.
