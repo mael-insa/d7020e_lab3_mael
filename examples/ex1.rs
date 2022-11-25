@@ -4,7 +4,7 @@
 //! ```
 use symex_lib::Any;
 
-pub fn get_sign(v: i32) -> i32 {
+fn get_sign(v: i32) -> i32 {
     if v > 0 {
         return 1;
     } else if v == 0 {
