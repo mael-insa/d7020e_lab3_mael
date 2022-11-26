@@ -34,10 +34,10 @@ If you get an error at this point check the install instructions. If still does 
 
   ```shell
   Symbolic:
-    a-2155673927: 0x40000000 (32-bits)
+    a-2155673927: 0x40000000 (32-bits) // <- concrete assignment
   ```
 
-  This amounts to a concrete assignment of `v` triggering PATH 1. Now translate this value to an unsigned integer (the type of `v` is `i32`).
+  This amounts to a concrete assignment (value) of `v` triggering PATH 1. Now translate this value to an unsigned integer (the type of `v` is `i32`).
 
   [Your answer here]
 
@@ -51,7 +51,7 @@ If you get an error at this point check the install instructions. If still does 
 
   Now, let's look at the second path (PATH 2).
 
-  Translate the return value to an `i32`.
+  Translate the `Success: returned` bit-vector value to an `i32`.
 
   [Your answer here]
 
@@ -67,9 +67,9 @@ If you get an error at this point check the install instructions. If still does 
 
   [Your answer here]
 
-  Does this value meet the condition Ex1 B2)?
-
 - Ex1 B4)
+
+  Does this value meet the condition Ex1 B2)?
   
   [Yor answer here]
 
@@ -93,9 +93,9 @@ If you get an error at this point check the install instructions. If still does 
 
   [Your answer here]
 
-- Ex1 B4)
+- Ex1 C4)
 
-  Does this value meet the condition Ex1 22)?
+  Does this value meet the condition Ex1 C2)?
   
   [Yor answer here]
 
