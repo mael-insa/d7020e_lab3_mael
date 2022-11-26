@@ -116,14 +116,14 @@ Then read the `data` register `n` times (but we don't do anything with the read 
   Now, let's see what happens:
 
   ```shell
-  cargo symex --example ex3 --function device_test --release
+  cargo symex --example ex3 --function device_test_sum --release
   ```
 
   [Your output here]
 
   In this case you should now have got 9 paths (as usual, if not double check and report problems.)
 
-  So why did we get 9 different paths, well there is now a potential error overflow error turning up that the Rust compiler cannot statically prove false (never to happen).
+  So why did we get 9 different paths, well there is now a potential overflow error turning up that the Rust compiler cannot statically prove false (never to happen).
 
   The paths obtained relate to the number for bytes received, 0 bytes, 1 byte, 2 bytes, up to 8. (9 in total).
 
@@ -179,11 +179,11 @@ Then read the `data` register `n` times (but we don't do anything with the read 
 
 - Ex4 A5)
 
-  With this analysis at hand. We should now be able to fix the problem in the test. (The model is not wrong here, right.)
+  With this analysis at hand, we should now be able to fix the problem in the test. (The model is not wrong here, right.)
 
   Apply the patch needed, and confirm that you get 9 succeeding paths.
 
-  Check in both this file and the updated `ex4` file.
+  Check-in both this file and the updated `ex3` file.
 
 ---
 
