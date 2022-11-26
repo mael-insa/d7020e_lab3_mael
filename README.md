@@ -6,6 +6,27 @@ In this lab you will work with symbolic execution using the [symex](https://gith
 
 ## Install
 
+### LLVM
+
+The current `symex` implementation uses LLVM-IR under the hood. For the tool to work, you need to install `llvm` using your package manager.
+
+- arch: The latest packed version in arch linux is LLVM-14 (221125).
+  ```shell
+  pacman -S llvm
+  ```
+
+- ubuntu like: The latest packed version in ubuntu is LLVM-14 (221126)
+  ```shell
+  sudo apt install clang lldb lld
+  ```
+
+  You can verify the `clang` installation by:
+
+  ```shell
+  clang --version
+  clang++ --version
+  ```
+
 ### SymEx
 `symex` is in early development and has not yet been released through `crates.io`. Instead you can install the tool directly from the git repo.
 
@@ -23,13 +44,7 @@ Alternatively, if you are interested in looking into the source code/and or play
 
 - `cargo install --path cargo-symex` 
 
-### LLVM
 
-The current `symex` implementation uses LLVM-IR under the hood. For this to work, you need to install `llvm` using your package manager. The latest packed version in arch linux is LLVM-14 (221125).
-
-```shell
-pacman -S llvm
-```
 
 ### Rust version
 
