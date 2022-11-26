@@ -1,7 +1,5 @@
-//!
-//! ```shell
 //! cargo symex --example ex1 --function get_sign_test
-//! ```
+
 use symex_lib::Any;
 
 fn get_sign(v: i32) -> i32 {

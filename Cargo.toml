@@ -11,3 +11,6 @@ edition = "2021"
 
 symex_lib = { git = "https://github.com/norlen/symex" }
 valid_derive = { git = "https://github.com/norlen/symex" }
+
+[profile.release]
+overflow-checks = true

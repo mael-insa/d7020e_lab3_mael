@@ -1,7 +1,6 @@
-//!
-//! ```shell
 //! cargo symex --example ex2 --function get_sign_test --release
-//! ```
+//! cargo symex --example ex2 --function get_sign_test_release --release
+
 use symex_lib::Any;
 
 fn get_sign(v: i32) -> i32 {
