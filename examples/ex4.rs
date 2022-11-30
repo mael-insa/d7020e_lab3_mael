@@ -13,7 +13,7 @@ fn sum_recursive(n: u8) -> u32 {
 // iterative
 fn sum_iterative(n: u8) -> u32 {
     let mut sum = 0;
-    for v in 0..=n {
+    for v in 0..n {
         sum += v as u32
     }
     sum
