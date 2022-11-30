@@ -210,19 +210,19 @@ overflow-checks = true
 
 Now, enable (uncomment) the first sum implementation (`sum_recursive`) and run on hardware in `--release` mode.
 
-- A) `sum_recursive`
+- E1) `sum_recursive`
   
 [Your sum_recursive, cycle-count here]
 
 Now, comment out `sum_recursive` and uncomment `sum_iterative`, and run on hardware in `--release` mode.
 
-- B) `sum_iterative`
+- E2) `sum_iterative`
 
 [Your sum_iterative, cycle-count here]
 
 Finally repeat for `sum_formula`.
 
-- C) `sum_formula`
+- E3) `sum_formula`
   
 [Your sum_formula, cycle-count here]
 
@@ -230,40 +230,43 @@ If you run with/without cache enabled or even from RAM does not really matter, w
 
 Discuss in your own words the results in terms of cycle-counts between the sum implementations.
 
-- D) Discussion regarding cycle-counts
+- E4) Discussion regarding cycle-counts
 
 [Your discussion regarding cycle-counts]
 
 Discuss in your own words the results compared to the `Instructions processed` for the sum implementations. Do you see a correlation between the `symex` results and the actual execution. 
 
-- E) Discussion cycle-counts vs Instructions processed
+- E5) Discussion cycle-counts vs Instructions processed
 
 [Your discussion regarding cycle-counts vs Instructions processed]
 
 Now with all three sum implementations enabled make an objdump of the application and paste the generated assembly code for each function below:
 
-- F) Assembly for `sum_recursive`
+- E6) Assembly for `sum_recursive`
 
 [Your assembly for `sum_recursive`]
 
-- G) Assembly for `sum_iterative`
+- E7) Assembly for `sum_iterative`
 
 [Your assembly for `sum_iterative`]
 
-- H) Assembly for `sum_formula`
+- E8) Assembly for `sum_formula`
 
 [Your assembly for `sum_formula`]
 
-Now, for each assembly implementation F) G) H) add comments to the assembly showing what source code statements correspond to what assembly level instructions, what registers are used for what etc.
+Now, for each assembly implementation E6) E7) E8) add comments to the assembly showing what source code statements correspond to what assembly level instructions, what registers are used for what etc.
 
-With this at hand, discuss again the question D, results in terms of cycle-counts, and try to explain the observed results for `sum_recursive`, `sum_iterative`, and `sum_formula` related to the assembly.
+- E9) Cycle-counts vs assembly
 
-- I)
+With this at hand, discuss again the question E4), results in terms of cycle-counts, and try to explain the observed results for `sum_recursive`, `sum_iterative`, and `sum_formula` related to the assembly.
 
 [Your discussion of cycle-counts vs assembly]
 
-Now, we can return to E), discuss in your own words how the mapping from LLVM-IR to assembly did affect the results (e.g., did you get some unexpected results, and if so could they be explained)
+- E10) Cycle-counts/assembly vs. Instructions processed
 
+Now, we can return to E5), discuss in your own words how the mapping from LLVM-IR to assembly did affect the results (e.g., did you get some unexpected results, and if so could they be explained)
+
+[Your discussion of cycle-counts/assembly vs. Instructions processed]
 
 
 
