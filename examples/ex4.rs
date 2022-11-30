@@ -60,27 +60,5 @@ pub fn complexity_sum_formula() {
     let _ = sum_formula(n);
 }
 
-
-
-
-
-
-// some function
-fn f(a: i32, b: i32, c: i32) -> i32 {
-    2 * a - 5 / b + c
-}
-
-// test solve for result == 42
-fn test_f() {
-    let a = i32::any();
-    let b = i32::any();
-    let c = i32::any();
-
-    // assume(a > 10);
-    // assume(b < 2);
-
-    assert!(f(a, b, c) == 42);
-}
-
 // this is just here to make Rust happy :)
 fn main() {}
