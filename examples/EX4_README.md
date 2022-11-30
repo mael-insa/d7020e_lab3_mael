@@ -153,6 +153,27 @@ And prior research:
 - [Verification of Safety Functions Implemented in Rust: a Symbolic Execution based approach](http://ltu.diva-portal.org/smash/record.jsf?pid=diva2%3A1426544&dswid=-2583)
 
 
+Now let us inspect the our three implementations.
+
+```shell
+cargo symex --example ex4 --function complexity_sum_recursive --release
+
+cargo symex --example ex4 --function complexity_sum_iterative --release
+
+cargo symex --example ex4 --function complexity_sum_formula --release
+```
+
+For each test, report the `Instructions processed`:
+
+[Instructions processed for: complexity_sum_recursive]
+
+[Instructions processed for: complexity_sum_iterative]
+
+[Instructions processed for: complexity_sum_formula]
+
+In your own words, try to explain the results obtained. Why did the complexity_sum_formula just produce one path?
+
+[Your answer here]
 
 
 
