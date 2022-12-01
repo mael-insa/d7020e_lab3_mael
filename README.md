@@ -27,6 +27,16 @@ The current `symex` implementation uses LLVM-IR under the hood. For the tool to 
   clang++ --version
   ```
 
+### ZLIB
+
+If you run into a compilation error when installing `symex` you may need to install `zlib`.
+
+- ubuntu like: 
+
+  ```shell
+  apt install zlib1g-dev
+  ```
+
 ### SymEx
 `symex` is in early development and has not yet been released through `crates.io`. Instead you can install the tool directly from the git repo.
 
