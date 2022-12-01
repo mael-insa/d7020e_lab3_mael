@@ -79,3 +79,9 @@ rustup override set 1.64
 - `ex3`
   
   In this example we will see how we can model hardware, and verify that the user program accesses the hardware correctly.
+
+Optional exercises
+
+- `ex4`
+
+  Here you will prove functional equality by means of symbolic execution. You will also investigate the correlation between instructions executed by `symex` and instructions executed on bare metal hardware.
