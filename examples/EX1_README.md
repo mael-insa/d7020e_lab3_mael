@@ -133,13 +133,17 @@ If you get an error at this point check the install instructions. If still does 
 
   Add/commit/push as a new git branch `B2`.
 
-Notice, the idea here is to exercise analysis. The Rust compiler allows for hardware supported saturating arithmetics `saturating_add` through intrinsics (but these are experimental). Point here is not efficiency, but rather principles to avoid panics.
+---
 
-Notice, these examples are trivial, you could probably have come up with non panic:ing solution by hand. For more complex examples, `symex` holds your hand, it will automatically find ALL paths that lead up to a panic, not relying on You to figure them out manually (by e.g., extensive unit testing).
+Learning outcomes:
 
-Already at this point we can reap the benefits of symbolic execution though the `symex` tool is in early stages.
+The idea here is to exercise analysis, panic detection and avoidance (not necessarily coming up with the most effective solution possible). 
 
+The examples shown are trivial, you could probably have come up with panic:ing solutions by hand. However, for more complex examples `symex` holds your hand. Our tool will automatically find ALL paths that lead up to a panic, not relying on You to figure them out manually (by e.g., extensive unit testing).
 
+Already at this point you have learned to reap the benefits of symbolic execution though the `symex` tool is in early stages.
+
+As an aside: Regarding saturating arithmetics, if extreme/optimal performance is required, the Rust compiler allows to exploit hardware supported saturating arithmetics by means of compiler intrinsics (in this case the `saturating_add` intrinsic). However, intrinsics are not yet stabilized thus requires the nightly compiler.
 
 
 
