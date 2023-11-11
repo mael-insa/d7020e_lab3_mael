@@ -63,15 +63,12 @@ If you already have a `cargo-symex` installed you can update an install by addin
 
 ### Rust version
 
-We have some dependency to nightly features of the compiler:
+Make sure you are on the latest Rust toolchain.
+
+Add the `thumbv6m-none-eabi` compilation target. 
 
 ```shell
-rustup override set nightly
-```
-
-And add the `thumbv6m-none-eabi` target.
-
-```shell
+rustup update
 rustup target add thumbv6m-none-eabi
 ```
 
