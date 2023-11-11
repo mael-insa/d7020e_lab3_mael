@@ -1,8 +1,14 @@
 //! cargo symex --example ex1 --function get_sign_test
 
-use symex_lib::Any;
+#![no_std]
+#![no_main]
 
-fn get_sign(v: i32) -> i32 {
+use panic_halt as _;
+use rp2040_hal::entry;
+
+#[no_mangle]
+#[inline(never)]
+pub fn get_sign(v: i32) -> i32 {
     if v > 0 {
         return 1;
     } else if v == 0 {
@@ -12,11 +18,33 @@ fn get_sign(v: i32) -> i32 {
     }
 }
 
-// this is a test for the get_sign
-pub fn get_sign_test() -> i32 {
-    let v = i32::any();
-    get_sign(v)
+#[no_mangle]
+#[inline(never)]
+pub fn addu(v0: u32) -> (u32, u32) {
+    (v0, v0 + v0)
+}
+
+#[no_mangle]
+#[inline(never)]
+pub fn addi(v0: i32) -> (i32, i32) {
+    (v0, v0 + v0)
 }
 
 // this is just here to make Rust happy :)
-fn main() {}
+#[entry]
+fn main() -> ! {
+    let l = get_sign(3);
+    // let (v0, v1, v2, v3) = add(1, 2, 3, 4);
+    let (v0, v1) = addu(1);
+    let (v2, v3) = addi(2);
+
+    // force the result to be read, thus prevent LLVM to optimize out the `get_sign` function.
+    unsafe {
+        let _ = core::ptr::read_volatile(&l);
+        let _ = core::ptr::read_volatile(&v0);
+        let _ = core::ptr::read_volatile(&v1);
+        let _ = core::ptr::read_volatile(&v2);
+        let _ = core::ptr::read_volatile(&v3);
+    }
+    loop {}
+}

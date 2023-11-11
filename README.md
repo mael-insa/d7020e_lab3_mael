@@ -1,69 +1,80 @@
 # Symbolic Execution
 
-In this lab you will work with symbolic execution using the [symex](https://github.com/norlen/symex) crate. 
+In this lab you will work with symbolic execution using the [symex](https://github.com/s7rul/symex/tree/armv6-m) crate.
+
+The repository is a fork by LTU student Erik Serander of the original work [symex](https://github.com/norlen/symex) by LTU student Joacim Norlen.  
+
+## Learning objectives
+
+- General understanding of static symbolic execution:
+  
+  `Symex` is an example of a static symbolic execution framework. Static here implies that symex either covers all feasible paths or fails with an error (no approximation is done by the tool).
+
+- General characteristics of low-level symbolic execution:
+  
+  In the `armv6` branch, Erik Serander has extended `symex` with an execution engine for the `armv6m` instruction set (ISA). This allows for detailed/low-level analysis of binary code (extracted from `elf` files).
+
+  Benefits of binary level analysis include:
+
+  - Detailed analysis including generated code for stack handling.
+
+  - Possibility to analysis of code including inline assembly and/or external legacy C/C++ code.
+  
+  - No need to blindly trust compiler backend (LLVM + linker) to be correct, as the analysis is done on the generated binary.
+
+  Drawbacks of binary level analysis include:
+
+  - Performance (analysis at binary level is more detailed at the cost of (typically) increased number of instructions to analyze)
+
+  - An custom execution engine for each target ISA architecture is required (in this case the `armv6m`), whereas target agnostic analysis at LLVM-IR level covers all backends supported by LLVM. 
+
+- General understanding of execution time estimation by path analysis:
+
+  Based on the vendors specification of the `armv6m` ISA the `symex` tool estimates the CPU time fore each path found (and thus the worst case execution time can be estimated). 
+  
+  Overhead due to RAM/FLASH wait states and bus arbitration is currently not modelled in `symex`, however such extension can be developed. 
+
+Write a short reflection in your own words below, showing how you gained understanding towards the learning objectives/goals.
+
+[Your reflection here]
 
 ---
 
 ## Install
 
-### LLVM
-
-The current `symex` implementation uses LLVM-IR under the hood. For the tool to work, you need to install `llvm` using your package manager.
-
-- arch: The latest packed version in arch linux is LLVM-14 (221125).
-  ```shell
-  pacman -S llvm
-  ```
-
-- ubuntu like: The latest packed version in ubuntu is LLVM-14 (221126)
-  ```shell
-  sudo apt install clang lldb lld
-  ```
-
-  You can verify the `clang` installation by:
-
-  ```shell
-  clang --version
-  clang++ --version
-  ```
-
-### ZLIB
-
-If you run into a compilation error when installing `symex` you may need to install `zlib`.
-
-- ubuntu like: 
-
-  ```shell
-  apt install zlib1g-dev
-  ```
-
-### SymEx
 `symex` is in early development and has not yet been released through `crates.io`. Instead you can install the tool directly from the git repo.
 
 ```shell
-cargo install --git https://github.com/norlen/symex.git
+cargo install --git https://github.com/s7rul/symex --branch armv6-m cargo-symex
 ```
 
 Alternatively, if you are interested in looking into the source code/and or play around with the examples in the repository, you may clone the repo and install the tool manually as follows:
 
 - `cd` to some folder outside this repo. 
   
-- `git clone https://github.com/norlen/symex) repository`, and 
+- `git https://github.com/s7rul/symex/tree/armv6-m`, and 
 
 - `cd symex`. Now you can install the `cargo-symex` cargo sub command. 
 
 - `cargo install --path cargo-symex` 
 
+If you already have a `cargo-symex` installed you can update an install by adding the `--force` flag to the install command.
 
 
 ### Rust version
 
-The Rust toolchain comes with a pre-packed LLVM backend which needs to match the system LLVM (14 in our case) for the `symex` tool to work. The latest Rust compiler is packing LLVM-15 which causes a mismatch, so for running the labs you need to use a slightly older toolchain version (1.64). Rust allows you to set the toolchain per folder. `cd` to the folder where you want to run `cargo symex` from and override the Rust toolchain version to be used as below:
+We have some dependency to nightly features of the compiler:
 
 ```shell
-cd <folder>
-rustup override set 1.64
+rustup override set nightly
 ```
+
+And add the `thumbv6m-none-eabi` target.
+
+```shell
+rustup target add thumbv6m-none-eabi
+```
+
 ---
 
 ## Exercises

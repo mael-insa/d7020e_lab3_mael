@@ -2,9 +2,11 @@
 
 In this exercise you will get familiar with the `symex` tool. It is still fairly primitive but shows the principles of symbolic execution, which is the point here.
 
+The `cargo-symex` cli toll integrates as a sub-command `cargo symex`. You can invoke it with `--help` to get the set of features. For this lab you need to give the `--elf` option, since we want to analyze the code at binary level.
+
 Run the tool:
 ```shell
-cargo symex --example ex1 --function get_sign_test
+cargo symex --elf --example ex1 --function get_sign
 ```
 
 If you get an error at this point check the install instructions. If still does not work let me know on the discord and we'll figure out a solution.
@@ -15,88 +17,133 @@ If you get an error at this point check the install instructions. If still does 
 
   If everything worked out correctly `symex` will report three paths (PATH 1, PATH 2 and PATH 3).
 
-  For each path it should report `Success`, i.e., that the path was executed till end without any error (no assertion violations encountered).
+  For each path it should report `Symbolic:` (reflecting the symbolic argument register(s)), and `End State:` (the final values for each register being touched). You should also see the aggregated number of assembly instruction executed along the path, and the estimated (upper bound) execution time in CPU cycles.
 
 - Ex1 A2) 
   
-  Each path returns with a value (as the function `get_sign_test` is returning an `i32` typed value).
+  Each path returns with a value (as the function `get_sign` is returning an `i32` typed value). Arguments is stored in the `R0..R3` (additional arguments are passed on the stack). Results come in `R0, R2` (essentially following/extending on the C ABI). For mare info you can look at e.g. [Arm Blog](https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/on-the-aapcs-with-an-application-to-efficient-parameter-passing), or even the ARM official spec [ARM ABI](https://github.com/ARM-software/abi-aa/releases), (but its a lot of info to dig through). 
 
-  The value is reported simply as a bit vector, so have a suitable converter at hand, e.g., [RapidTables](https://www.rapidtables.com/convert/number/binary-to-decimal.html).
+  The register values are written in hex, use a converter e.g., [RapidTables](https://www.rapidtables.com/convert/number/binary-to-decimal.html).
 
-  For PATH 1, the output should be trivial (0...01).
-  Look at the source code to figure out what the path condition is for `get_sign` to return 1.
-
-  [Your answer here]
-
-- Ex1 A3)
+  For each path now look at the `Symbolic:` and `End State` and carefully match which reported path, that corresponds to each path in the source code:
   
-  Under PATH 1 you also will find:
+  Path 1
+  
+  [Which input value v as a signed integer in decimal]
+
+  [Which result value as a signed integer in decimal]
+
+  Path 2
+  
+  [Which input value v as a signed integer in decimal]
+
+  [Which result value as a signed integer in decimal]
+
+  Path 3
+  
+  [Which input value v as a signed integer in decimal]
+
+  [Which result value as a signed integer in decimal]
+
+- Ex1 B1)
+
+  Now look at the function `addu`, it takes a single value, and returns a tuple (first element is the input value, second element is double its value).
+
+  Run the example:
 
   ```shell
-  Symbolic:
-    a-2155673927: 0x40000000 (32-bits) // <- concrete assignment
+  cargo symex --elf --example ex1 --function addu
   ```
 
-  This amounts to a concrete assignment (value) of `v` triggering PATH 1. Now translate this value to an unsigned integer (the type of `v` is `i32`).
+  [Paste output here]
+
+  Rust is designed for safety, so it generates a panic (by default) if an unsigned integer addition overflows (or rather wraps around under modular arithmetics).
+
+  [Which input value in unsigned integer in decimal triggered the panic]
+
+  You should also have a success path.
+
+  [Which input value in unsigned integer in decimal triggered the success path]
+
+  [Which was the corresponding result (R1) in unsigned decimal]
+
+  Now fix the code such that it returns the `u32::MAX` in case the value would wrap. Hint, you can use an `if then else` expression here.
+
+  Run the example, to validate that there are no panics.
+
+  How many paths did you have.
 
   [Your answer here]
 
-- Ex1 A4)
+  Now let us analyze the paths.
 
-  Does this value (`v`) meet the condition Ex1 A2)?
+  [Which input value in unsigned integer in decimal triggered a normal add]
 
-  [Yor answer here]
+  [Which was the corresponding result (R1) in unsigned decimal]
 
-- Ex1 B1) 
+  [Which input value in unsigned integer in decimal triggered a saturating add]
 
-  Now, let's look at the second path (PATH 2).
+  [Which was the corresponding result (R1) in unsigned decimal]
 
-  Translate the `Success: returned` bit-vector value to an `i32`.
+  Add/commit/push as a new git branch `B1`.
+
+- Ex1 B2)
+
+  Now look at the function `addi`, it takes a single value, and returns a tuple (first element is the input value, second element is double its value).
+
+  Run the example:
+
+  ```shell
+  cargo symex --elf --example ex1 --function addi
+  ```
+
+  [Paste output here]
+
+  Rust is designed for safety, so it generates a panic (by default) if a signed integer addition overflows.
+
+  [Which input value in signed integer in decimal triggered the panic]
+
+  You should also have a success path.
+
+  [Which input value in signed integer in decimal triggered the success path]
+
+  [Which was the corresponding result (R1) in signed decimal]
+
+  Now fix the code such that it returns the `i32::MAX` in case the value would overflow on the positive side and `i32::MIN` if it would overflow on the negative side. Hint, you can use a nested `if then else` expression here.
+
+  Run the example, to validate that there are no panics.
+
+  How many paths did you have.
 
   [Your answer here]
 
-- Ex1 B2) 
+  Now let us analyze the paths.
 
-  Look at the source code to figure out what the path condition is for `get_sign` to hit this path.
+  [Which input value in signed integer in decimal triggered a normal add]
 
-  [Your answer here]
+  [Which was the corresponding result (R1) in signed decimal]
 
-- Ex1 B3)
+  [Which input value in unsigned integer in decimal triggered a positive saturating add]
+
+  [Which was the corresponding result (R1) in unsigned decimal]
+
+  [Which input value in unsigned integer in decimal triggered a negative saturating add]
+
+  [Which was the corresponding result (R1) in unsigned decimal]
+
+  Add/commit/push as a new git branch `B2`.
+
+Notice, the idea here is to exercise analysis. The Rust compiler allows for hardware supported saturating arithmetics `saturating_add` through intrinsics (but these are experimental). Point here is not efficiency, but rather principles to avoid panics.
+
+Notice, these examples are trivial, you could probably have come up with non panic:ing solution by hand. For more complex examples, `symex` holds your hand, it will automatically find ALL paths that lead up to a panic, not relying on You to figure them out manually (by e.g., extensive unit testing).
+
+Already at this point we can reap the benefits of symbolic execution though the `symex` tool is in early stages.
+
+
+
+
+
+
+
+
   
-  Now translate the concrete value of `v` triggering this path to an unsigned integer (the type of `v` is `i32`).
-
-  [Your answer here]
-
-- Ex1 B4)
-
-  Does this value meet the condition Ex1 B2)?
-  
-  [Yor answer here]
-
-- Ex1 C1)
-
-  Finally we repeat this for PATH 3.
-
-  Translate the return value to an `i32`.
-
-  [Your answer here]
-
-- Ex1 C2) 
-
-  Look at the source code to figure out what the path condition is for `get_sign` to hit this path.
-
-  [Your answer here]
-
-- Ex1 C3)
-
-  Now translate the concrete value of `v` triggering this path to an unsigned integer (the type of `v` is `i32`).
-
-  [Your answer here]
-
-- Ex1 C4)
-
-  Does this value meet the condition Ex1 C2)?
-  
-  [Yor answer here]
-
-Remember to check in your changes to this file.
