@@ -13,6 +13,7 @@ symex_lib = { git = "https://github.com/s7rul/symex", branch = "armv6-m" }
 valid_derive = { git = "https://github.com/s7rul/symex" }
 panic-halt = "0.2.0"
 cortex-m-rt = "0.7"
+cortex-m = "0.7"
 rp2040-hal = { version = "0.9", features = ["rt", "critical-section-impl"] }
 
 [profile.release]
