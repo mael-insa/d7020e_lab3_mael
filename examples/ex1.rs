@@ -1,4 +1,4 @@
-//! cargo symex --elf --example ex1 --function get_sign_test [--release]
+//! cargo symex --elf --example ex1 --function get_sign [--release]
 //! cargo symex --elf --example ex1 --function addu [--release]
 //! cargo symex --elf --example ex1 --function addi [--release]
 //!
