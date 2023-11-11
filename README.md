@@ -16,7 +16,7 @@ The repository is a fork by LTU student Erik Serander of the original work [syme
 
   Benefits of binary level analysis include:
 
-  - Detailed analysis including generated code for stack handling.
+  - Detailed analysis including generated code for function calls and stack handling.
 
   - Possibility to analysis of code including inline assembly and/or external legacy C/C++ code.
   
