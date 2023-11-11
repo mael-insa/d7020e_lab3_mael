@@ -1,4 +1,8 @@
-//! cargo symex --example ex1 --function get_sign_test
+//! cargo symex --elf --example ex1 --function get_sign_test [--release]
+//! cargo symex --elf --example ex1 --function addu [--release]
+//! cargo symex --elf --example ex1 --function addi [--release]
+//!
+//! functional verification
 
 #![no_std]
 #![no_main]
