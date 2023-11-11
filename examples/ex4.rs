@@ -1,6 +1,14 @@
 //! cargo symex --example ex4 --function equal
+//!
+//! functional equivalence
+#![no_std]
+#![no_main]
+
+use panic_halt as _;
+use rp2040_hal::entry;
+
 #[allow(dead_code)]
-use symex_lib::{assume, Any};
+use symex_lib::assume;
 
 // recursive
 fn sum_recursive(n: u8) -> u32 {
@@ -13,16 +21,17 @@ fn sum_recursive(n: u8) -> u32 {
 // iterative
 fn sum_iterative(n: u8) -> u32 {
     let mut sum = 0;
-    for v in 0..n {
+    for v in 0..=n {
         sum += v as u32
     }
     sum
 }
 
-// test equal
-pub fn equal_iter_rec() {
-    let n = u8::any();
-    // assume(n < 10);
+#[no_mangle]
+#[inline(never)]
+// test sum_iterative == sum_recursive
+pub fn equal_iter_rec(n: u8) {
+    assume(n < 10);
     assert!(sum_iterative(n) == sum_recursive(n));
 }
 
@@ -32,33 +41,49 @@ fn sum_formula(n: u8) -> u32 {
     n * (n + 1) / 2
 }
 
+#[no_mangle]
+#[inline(never)]
 // test equal rec_formula
-pub fn equal_rec_formula() {
-    let n = u8::any();
+pub fn equal_rec_formula(n: u8) {
     assume(n < 10);
     assert!(sum_recursive(n) == sum_formula(n));
 }
 
 // test complexity sum_recursive
-pub fn complexity_sum_recursive() {
-    let n = u8::any();
+#[no_mangle]
+#[inline(never)]
+pub fn complexity_sum_recursive(n: u8) {
     assume(n < 10);
     let _ = sum_recursive(n);
 }
 
 // test complexity sum_iterative
-pub fn complexity_sum_iterative() {
-    let n = u8::any();
+#[no_mangle]
+#[inline(never)]
+pub fn complexity_sum_iterative(n: u8) {
     assume(n < 10);
     let _ = sum_iterative(n);
 }
 
 // test complexity sum_formula
-pub fn complexity_sum_formula() {
-    let n = u8::any();
+#[no_mangle]
+#[inline(never)]
+pub fn complexity_sum_formula(n: u8) {
     assume(n < 10);
     let _ = sum_formula(n);
 }
 
-// this is just here to make Rust happy :)
-fn main() {}
+// main here to prevent LLVM to optimize out our code
+#[entry]
+fn main() -> ! {
+    equal_iter_rec(1);
+    equal_rec_formula(1);
+    complexity_sum_recursive(1);
+    let si = complexity_sum_iterative(1);
+    let sf = complexity_sum_formula(1);
+    unsafe {
+        let _ = core::ptr::read_volatile(&si);
+        let _ = core::ptr::read_volatile(&sf);
+    }
+    loop {}
+}
