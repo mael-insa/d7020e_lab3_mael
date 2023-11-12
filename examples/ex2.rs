@@ -1,4 +1,3 @@
-//! cargo symex --elf --example ex2 --function timed_loop
 //! cargo symex --elf --example ex2 --function timed_loop --release
 
 #![no_std]
