@@ -1,0 +1,14 @@
+{
+    "cSpell.ignoreWords": [
+        "WCET",
+        "addi",
+        "addu",
+        "armv",
+        "eabi",
+        "objdump",
+        "rustup",
+        "struct",
+        "symex",
+        "thumbv"
+    ]
+}
