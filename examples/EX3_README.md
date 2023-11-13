@@ -1,4 +1,4 @@
-# Ex3
+# Ex3 NOT WORKING YET
 
 In this example we will see how we can model hardware, and verify that the user program accesses the hardware correctly.
 
@@ -9,10 +9,10 @@ Let us assume that we want to model a very simple device, with the following spe
   - The device holds an internal buffer of 8 bytes (`buffer`):
 
   - The device holds an internal byte sized register (`read_pos`) pointing to the next byte to read from the internal buffer.
-  
+
 - Functionality
 
-  - The device has a byte sized register `received` which contains the number of bytes received. Reading the `received` register resets the `read_pos` register. 
+  - The device has a byte sized register `received` which contains the number of bytes received. Reading the `received` register resets the `read_pos` register.
 
 - The device has a byte sized register `data` which returns the value from the internal buffer at the `read_pos` index. Reading the `data` register increments the `read_pos` register.
 
@@ -51,7 +51,6 @@ Looking at the model we see:
 
 - `data` returns the buffered value and increments the `read_pos`.
 
-
 Let's see how this pans out, in `device_test`.
 
 ```rust
@@ -73,7 +72,7 @@ First we construct our fake device and read the `received` register into `n`.
 Then read the `data` register `n` times (but we don't do anything with the read data).
 
 - Ex3 A1)
-  
+
   Run the test.
 
   ```shell
@@ -86,10 +85,10 @@ Then read the `data` register `n` times (but we don't do anything with the read 
 
 - Ex3 A2)
 
-  So why did the test fail? 
-  
-  Well, the test itself seems simple enough (nothing that can go wrong here really.) 
-  
+  So why did the test fail?
+
+  Well, the test itself seems simple enough (nothing that can go wrong here really.)
+
   However, on closer inspection, we find an error in our model of the functionality. Implicit to the specification, the number of bytes received must be less than 8 (since we have just an 8 byte buffer right).
 
   Let's fix this problem by the uncommenting the `assume(n <= 8)` statement.
@@ -167,12 +166,12 @@ Then read the `data` register `n` times (but we don't do anything with the read 
   [Past your first failing path here]
 
   Your result should have concrete assignments to 3 Symbolic values:
-  (As usual, double check/report.) 
+  (As usual, double check/report.)
 
   Explain in your own words what these 3 Symbolic values represent.
 
   [Your answer here]
-  
+
   Hint 1: look at the device model code. Where do we introduce symbolic (`any()`) values and in what order. You should be able to see the structure here. Also look at the previous (succeeding) paths, for further context.
 
   Hint 2: what could possibly go wrong in the test? The critical operation here is the `sum += device.data()`.
@@ -191,7 +190,7 @@ Then read the `data` register `n` times (but we don't do anything with the read 
 
 Although the device has a trivial specification, the example show that we can both create a model of a specification and verify that an application (in this case `device_test`) is correctly using the hardware model.
 
-Now, have a look at the errata for the 52840 v3 (a 40 page document), and you will find numerous examples where design errors have slipped through testing. Notice, this is the 3rd revision in production and the 7th iteration of the chip including Engineering samples. Still it takes 40 pages to list the remaining bugs and suggest mitigations. 
+Now, have a look at the errata for the 52840 v3 (a 40 page document), and you will find numerous examples where design errors have slipped through testing. Notice, this is the 3rd revision in production and the 7th iteration of the chip including Engineering samples. Still it takes 40 pages to list the remaining bugs and suggest mitigations.
 
 The approach we have taken here focus the functional properties modelled as state and state transitions, and as such does not cover extra functional properties, such as electrical properties and timely behavior. However, at glance, a majority of the bugs listed seems to relate functional behavior. Have a look yourself:
 

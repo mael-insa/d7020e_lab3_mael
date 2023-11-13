@@ -1,8 +1,6 @@
 # Ex4
 
-This is optional extra assignments for higher grades.
-
-## Functional equality
+When re-factoring or optimizing code we want to assure that two implementations are functionally equivalent. Whereas the problem is fundamentally hard (and impossible to prove in an automated fashion), we can make use of symbolic execution to gain confidence regarding functional equality.
 
 Assume we have an implementation for the `sum` function:
 
@@ -45,7 +43,7 @@ fn sum_iterative(n: u8) -> u32 {
 }
 ```
 
-In order to "replace" the trusted recursive implementation with the iterative one, we want to prove them equal. 
+In order to "replace" the trusted recursive implementation with the iterative one, we want to prove them equal.
 
 ```rust
 // test sum_iterative == sum_recursive
@@ -56,15 +54,16 @@ pub fn equal_iter_rec(n: u8) {
 ```
 
 Run:
+
 ```shell
 cargo symex --elf --example ex4 --function equal_iter_rec --release
 ```
 
-After you have seen a couple PATHs being produced you can now press `Ctrl-C` to quit `symex`. 
+After you have seen a couple PATHs being produced you can now press `Ctrl-C` to quit `symex`.
 
 A few things here to notice.
 
-- For this example, each `n` will render a new path. So the number of paths is linear to `n`. `n` is this case can be any number that fits into a `u8` (so 2**8 = 256). Under the hood, the SMT solver will try to satisfy constraints with increasing complexity, so the execution time is likely exponential in `n`. This is the worst case scenario for symbolic execution.
+- For this example, each `n` will render a new path. So the number of paths is linear to `n`. `n` is this case can be any number that fits into a `u8` (so 2\*\*8 = 256). Under the hood, the SMT solver will try to satisfy constraints with increasing complexity, so the execution time is likely exponential in `n`. This is the worst case scenario for symbolic execution.
 
 - Looking at the generated output we see that PATH 2 and higher all run into `Error: Abort -1`, so even if we quit `symex` early, we still have useful errors to work with.
 
@@ -72,11 +71,11 @@ Now look at the `sum_iterative` code in detail, identify the problem and fix the
 
 Hint. It passes for `n == 0` but not for `n == 1`, so there is something wrong with the range in the for loop.
 
-After the fix, the iterative and recursive implementations should render the same result, for any `n`, but as mentioned from complexity point of view we hit the worst case scenario for symbolic execution, and it will take lots of time to let `symex` cover all possible assignments of `n`. So abort once you have seen enough PATHs passing. 
+After the fix, the iterative and recursive implementations should render the same result, for any `n`, but as mentioned from complexity point of view we hit the worst case scenario for symbolic execution, and it will take lots of time to let `symex` cover all possible assignments of `n`. So abort once you have seen enough PATHs passing.
 
 The assumption `assume(n < 10)` strengthens the condition on `n` such to limit the problem.
 
-So now we have some 10 PATHs, with concrete assignments of `n` (0, 1 , ..., 9). Although, this not a complete proof of equality we see that the functions produce the same results for the covered input assignments, thus we have gained some confidence that the implementations will produce the same results for any `n`. 
+So now we have some 10 PATHs, with concrete assignments of `n` (0, 1 , ..., 9). Although, this not a complete proof of equality we see that the functions produce the same results for the covered input assignments, thus we have gained some confidence that the implementations will produce the same results for any `n`.
 
 There exists other (formal) methods to prove functional equality, e.g., deductive program verification using induction [Mathematical induction](https://en.wikipedia.org/wiki/Mathematical_induction).
 
@@ -123,11 +122,11 @@ Hint: The answer should not surprise you.
 
 ## D) Complexity
 
-Under the hood, symbolic execution operates on a representation of the program at hand. 
+Under the hood, symbolic execution operates on a representation of the program at hand.
 
-`symex` is designed to be modular, separating the execution engine from the constrain solver. 
+`symex` is designed to be modular, separating the execution engine from the constrain solver.
 
-`symex` provides an execution engines for `LLVM-IR` and `armv6m`. This allows `symex` `LLVM-IR` analysis to be used with any language that uses `LLVM` for code generation (which includes, Rust, C, C++, etc.). However, we need access to the `LLVM-IR`, so we cannot analyze inline assembly and code linked to our application (unless it is linked in as `LLVM-IR`, so libraries compiled with `gcc` is a no go). 
+`symex` provides an execution engines for `LLVM-IR` and `armv6m`. This allows `symex` `LLVM-IR` analysis to be used with any language that uses `LLVM` for code generation (which includes, Rust, C, C++, etc.). However, we need access to the `LLVM-IR`, so we cannot analyze inline assembly and code linked to our application (unless it is linked in as `LLVM-IR`, so libraries compiled with `gcc` is a no go).
 
 More importantly, analysis at `LLVM-IR` level does not reflect the exact behavior of the target binary, as applications are further optimized in the backend (on assembly level) and at link time.
 
@@ -150,7 +149,6 @@ And prior research:
 - [No Panic! Verification of Rust Programs by Symbolic Execution](http://ltu.diva-portal.org/smash/record.jsf?faces-redirect=true&aq2=%5B%5B%5D%5D&af=%5B%5D&searchType=SIMPLE&sortOrder2=title_sort_asc&query=&language=sv&pid=diva2%3A1256728&aq=%5B%5B%5D%5D&sf=all&aqe=%5B%5D&sortOrder=author_sort_asc&onlyFullText=false&noOfRows=50&dswid=1069)
 
 - [Verification of Safety Functions Implemented in Rust: a Symbolic Execution based approach](http://ltu.diva-portal.org/smash/record.jsf?pid=diva2%3A1426544&dswid=-2583)
-
 
 Now let us inspect the our three implementations.
 
@@ -203,12 +201,12 @@ Make sure you frequently commit and push changes to the lab1 repository, so that
 ```rust
 fn timed_loop() -> (u32, u32) {
     let start = DWT::cycle_count();
-    
+
     // under the assumption argument n < 10, 9 gave the worst case in `symex`
     // let _ = sum_recursive(9); // uncomment one at a time
     // let _ = sum_iterative(9);
     // let _ = sum_formula(9);
-    
+
     let end = DWT::cycle_count();
     (start, end)
 }
@@ -227,7 +225,7 @@ Copy paste the `sum_recursive`, `sum_iterative` and `sum_formula` from lab3 into
 - E1) `sum_recursive`
 
 Now, enable (uncomment) the first sum implementation (`sum_recursive`) and run on hardware in `--release` mode.
-  
+
 [Your sum_recursive, cycle-count here]
 
 - E2) `sum_iterative`
@@ -239,7 +237,7 @@ Now, comment out `sum_recursive` and uncomment `sum_iterative`, and run on hardw
 - E3) `sum_formula`
 
 Finally repeat for `sum_formula`.
-  
+
 [Your sum_formula, cycle-count here]
 
 If you run with/without cache enabled or even from RAM does not really matter, we are just interested in the relative execution time (so keep it the same for all test-runs). However, use `--release` builds for all cases (in debug/dev mode Rust generates lots of extra overhead that makes comparisons hard to assess).
@@ -252,7 +250,7 @@ Discuss in your own words the results in terms of cycle-counts between the sum i
 
 - E5) Discussion cycle-counts vs `symex` max number cycles
 
-Discuss in your own words the results compared to the `Max number cycles` for the sum implementations. Do you see a correlation between the `symex` results and the actual execution. 
+Discuss in your own words the results compared to the `Max number cycles` for the sum implementations. Do you see a correlation between the `symex` results and the actual execution.
 
 Hints, you run under two slightly different ISAs, moreover the underlying processor implementation also differs, thus some deviance is expected. Moreover, the `nrf52840` unless perfectly aligned for the instruction cache has additional OH for instruction fetches and pipeline filling. Based on these insights discuss your obtained results.
 
@@ -265,7 +263,6 @@ Now with all three sum implementations enabled make an objdump of the applicatio
 [Your assembly for `sum_recursive` armv7m (lab1)]
 
 [Your assembly for `sum_recursive` armv6m (lab3)]
-
 
 - E7) Assembly for `sum_iterative`
 
@@ -296,7 +293,7 @@ Once you got it working, make an objdump to confirm that the generated code is t
 Now repeat E1-3.
 
 - F1) `sum_recursive`
-  
+
 [Your sum_recursive, cycle-count here]
 
 Now, comment out `sum_recursive` and uncomment `sum_iterative`, and run on hardware in `--release` mode.
@@ -309,7 +306,7 @@ Finally repeat for `sum_formula`.
 
 - F3) `sum_formula`
 
-Discuss in your own words the results obtained (did you get fewer/more cycles etc., when changed ISA). 
+Discuss in your own words the results obtained (did you get fewer/more cycles etc., when changed ISA).
 
 [Discussion here]
 
@@ -328,31 +325,7 @@ Learning objectives:
 You should now have gained basic insights into the use of symbolic execution to:
 
 - Test for functional equivalence. Can we replace one implementation by another?
-  
 - Symbolic execution to assess performance differences. Can we distinguish good implementations from bad ones regarding performance?
-  
 - Model base cycle estimation vs. measurements. How, close can estimates match real-life measurements?
-  
-In prior research at LTU, we developed an automated framework that generated concrete input assignments triggering each found path, which was fed to an automated test-bed that replayed each path on the actual target and measured the corresponding execution time. However, this tool was based on `cargo klee`, which is adopting *dynamic* symbolic execution and thus may be inexact. Moreover, `klee` operates on the LLVM-IR, thus even without approximation, the actual paths running on the target might differ (due to backend code generation and optimizations). Adopting `symex --elf` addresses these shortcomings, and You can take part in developing a further improved worst case execution time (WCET) framework, challenging the best WCET tools!
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
+In prior research at LTU, we developed an automated framework that generated concrete input assignments triggering each found path, which was fed to an automated test-bed that replayed each path on the actual target and measured the corresponding execution time. However, this tool was based on `cargo klee`, which is adopting _dynamic_ symbolic execution and thus may be inexact. Moreover, `klee` operates on the LLVM-IR, thus even without approximation, the actual paths running on the target might differ (due to backend code generation and optimizations). Adopting `symex --elf` addresses these shortcomings, and You can take part in developing a further improved worst case execution time (WCET) framework, challenging the best WCET tools!
