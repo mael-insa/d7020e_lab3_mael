@@ -30,13 +30,14 @@ impl Device {
 
         // we return an unknown number of bytes received
         let n = u8::any();
-        // assume(n <= 8);
+        assume(n <= 8);
         // for v in self.buffer[0..n as usize].iter_mut() {
         //     *v = u8::any()
         // }
         n
     }
 
+    #[inline(never)]
     fn data(&mut self) -> u8 {
         let r = self.buffer[self.read_pos as usize];
         self.read_pos += 1;
