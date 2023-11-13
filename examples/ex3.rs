@@ -1,5 +1,10 @@
+#![no_std]
+#![no_main]
 //! cargo symex --example ex3 --function device_test
 //! cargo symex --example ex3 --function device_test_sum --release
+
+use panic_halt as _;
+use rp2040_hal::entry;
 
 use symex_lib::{assume, Any};
 
@@ -25,10 +30,10 @@ impl Device {
 
         // we return an unknown number of bytes received
         let n = u8::any();
-        // assume(n <= 8);
-        // for v in self.buffer[0..n as usize].iter_mut() {
-        //     *v = u8::any()
-        // }
+        assume(n <= 8);
+        for v in self.buffer[0..n as usize].iter_mut() {
+            *v = u8::any()
+        }
         n
     }
 
@@ -39,6 +44,8 @@ impl Device {
     }
 }
 
+#[no_mangle]
+#[inline(never)]
 pub fn device_test() {
     let mut device = Device::reset();
 
@@ -48,6 +55,8 @@ pub fn device_test() {
     }
 }
 
+#[no_mangle]
+#[inline(never)]
 pub fn device_test_sum() -> u8 {
     let mut device = Device::reset();
 
@@ -61,4 +70,13 @@ pub fn device_test_sum() -> u8 {
 }
 
 // this is just here to make Rust happy :)
-fn main() {}
+#[entry]
+fn main() -> ! {
+    let sum = device_test_sum();
+    device_test();
+
+    unsafe {
+        let _ = core::ptr::read_volatile(&sum);
+    }
+    loop {}
+}

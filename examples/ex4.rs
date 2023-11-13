@@ -1,8 +1,8 @@
+#![no_std]
+#![no_main]
 //! cargo symex --example ex4 --function equal
 //!
 //! functional equivalence
-#![no_std]
-#![no_main]
 
 use panic_halt as _;
 use rp2040_hal::entry;
