@@ -30,10 +30,10 @@ impl Device {
 
         // we return an unknown number of bytes received
         let n = u8::any();
-        assume(n <= 8);
-        for v in self.buffer[0..n as usize].iter_mut() {
-            *v = u8::any()
-        }
+        // assume(n <= 8);
+        // for v in self.buffer[0..n as usize].iter_mut() {
+        //     *v = u8::any()
+        // }
         n
     }
 
