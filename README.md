@@ -82,7 +82,7 @@ rustup target add thumbv6m-none-eabi
 
   In this exercise we will look at a release build of the `ex1` program.
 
-- `ex3`, NOT WORKING YET
+- `ex3`
 
   In this example we will see how we can model hardware, and verify that the user program accesses the hardware correctly.
 
