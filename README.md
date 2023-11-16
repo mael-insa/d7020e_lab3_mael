@@ -42,6 +42,8 @@ Write a short reflection in your own words below, showing how you gained underst
 
 ## Install
 
+For Windows WSL please confer to [WSL.md](WSL.md).
+
 `symex` is in early development and has not yet been released through `crates.io`. Instead you can install the tool directly from the git repo.
 
 ```shell
