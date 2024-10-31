@@ -1,15 +1,17 @@
-MEMORY {
-    BOOT2 : ORIGIN = 0x10000000, LENGTH = 0x100
-    FLASH : ORIGIN = 0x10000100, LENGTH = 2048K - 0x100
-    RAM   : ORIGIN = 0x20000000, LENGTH = 256K
+/* Linker script for the nRF52 - WITHOUT SOFT DEVICE */
+MEMORY
+{
+  /* NOTE K = KiBi = 1024 bytes */
+  FLASH  : ORIGIN = 0x00000000, LENGTH = 1024K
+  /* 
+    Data ram, needed for uninit data 
+
+    Note that this is read via the dcode bus not the icode bus.
+  */
+  RAM    : ORIGIN = 0x20000000, LENGTH = 64K
+  /*
+    Allocate memory for code in ram (this is icode ram).
+  */
+  RAM2 	 : ORIGIN = 0x00810000, LENGTH = 64K
+  TEXT 	 : ORIGIN = 0x00820000, LENGTH = 64K
 }
-
-EXTERN(BOOT2_FIRMWARE)
-
-SECTIONS {
-    /* ### Boot loader */
-    .boot2 ORIGIN(BOOT2) :
-    {
-        KEEP(*(.boot2));
-    } > BOOT2
-} INSERT BEFORE .text;

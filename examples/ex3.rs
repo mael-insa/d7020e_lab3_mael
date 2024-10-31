@@ -3,8 +3,9 @@
 //! cargo symex --example ex3 --function device_test
 //! cargo symex --example ex3 --function device_test_sum --release
 
+use cortex_m_rt::entry;
+use nrf52840_hal::pac::Peripherals;
 use panic_halt as _;
-use rp2040_hal::entry;
 
 use symex_lib::{assume, Any};
 
@@ -17,7 +18,7 @@ struct Device {
 impl Device {
     fn reset() -> Self {
         Device {
-            buffer: [0; 8],
+            buffer: [u8::MAX; 8],
             read_pos: 0,
         }
     }
@@ -73,6 +74,8 @@ pub fn device_test_sum() -> u8 {
 // this is just here to make Rust happy :)
 #[entry]
 fn main() -> ! {
+    // Just here to ensure we get the vector table from nordic.
+    let _ = Peripherals::take().unwrap();
     let sum = device_test_sum();
     device_test();
 

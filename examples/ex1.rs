@@ -7,8 +7,9 @@
 #![no_std]
 #![no_main]
 
+use cortex_m_rt::entry;
+use nrf52840_hal::pac::Peripherals;
 use panic_halt as _;
-use rp2040_hal::entry;
 
 #[no_mangle]
 #[inline(never)]
@@ -37,6 +38,7 @@ pub fn addi(v0: i32) -> (i32, i32) {
 // this is just here to make Rust happy :)
 #[entry]
 fn main() -> ! {
+    let _ = unsafe { Peripherals::steal() };
     let l = get_sign(3);
     // let (v0, v1, v2, v3) = add(1, 2, 3, 4);
     let (v0, v1) = addu(1);

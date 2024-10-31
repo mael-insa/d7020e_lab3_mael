@@ -4,8 +4,9 @@
 //!
 //! functional equivalence
 
+use cortex_m_rt::entry;
+use nrf52840_hal::pac::Peripherals;
 use panic_halt as _;
-use rp2040_hal::entry;
 
 #[allow(dead_code)]
 use symex_lib::assume;
@@ -76,6 +77,9 @@ pub fn complexity_sum_formula(n: u8) {
 // main here to prevent LLVM to optimize out our code
 #[entry]
 fn main() -> ! {
+    // Just here to ensure that we get a vector table.
+    let _ = unsafe { Peripherals::steal() };
+
     equal_iter_rec(1);
     equal_rec_formula(1);
     complexity_sum_recursive(1);

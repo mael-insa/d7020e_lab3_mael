@@ -1,5 +1,35 @@
-[target.thumbv6m-none-eabi]
-rustflags = ["-C", "link-arg=--nmagic", "-C", "link-arg=-Tlink.x"]
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+runner = "probe-rs run --chip nRF52840_xxAA --protocol swd"
+
+rustflags = [
+    "-C",
+    "linker=flip-link",
+    "-C",
+    "link-arg=--nmagic",
+    "-C",
+    "link-arg=-Tcustom_link.x",
+    "-C",
+    "link-arg=-Tdefmt.x",
+    "-Zemit-stack-sizes",
+    "-Clinker-plugin-lto",
+    "-Clink-arg=-mllvm=-lto-embed-bitcode=optimized",
+    "-Clink-arg=-mllvm=-stack-size-section",
+
+    # Code-size optimizations.
+    #   trap unreachable can save a lot of space, but requires nightly compiler.
+    #   uncomment the next line if you wish to enable it
+    # "-Z", "trap-unreachable=no",
+    # "-C",
+    # "inline-threshold=5",
+    # "-C",
+    # "no-vectorize-loops",
+]
+
+[unstable]
+build-std = ["compiler_builtins", "core"]
 
 [build]
-target = "thumbv6m-none-eabi"
+target = "thumbv7m-none-eabi"
+
+[env]
+DEFMT_LOG = "info"
