@@ -1,6 +1,6 @@
 #![no_std]
 #![no_main]
-//! cargo symex --example ex4 --function equal
+//! cargo symex --elf --example ex4 --function <function to test>
 //!
 //! functional equivalence
 
