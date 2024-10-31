@@ -18,7 +18,7 @@ struct Device {
 impl Device {
     fn reset() -> Self {
         Device {
-            buffer: [u8::MAX; 8],
+            buffer: [0; 8],
             read_pos: 0,
         }
     }
