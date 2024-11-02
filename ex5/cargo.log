@@ -1,0 +1,21 @@
+Utility to measure HW cycles for the nRF52840_xxAA
+Measuring : ex4
+ex4:
+	hw 	:  
+	symex 	: 27
+
+Measuring : ex1
+ex1:
+	hw 	:  
+	symex 	: 16
+
+Measuring : ex3
+ex3:
+	hw 	:  
+	symex 	: 242
+
+Measuring : ex2
+ex2:
+	hw 	:  
+	symex 	: 60009
+
