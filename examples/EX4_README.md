@@ -168,19 +168,21 @@ For each test, report three values
 
 - C: number of clock cycles for final path
 
+- S: stack usage for the final path
+
 Your answer for complexity_sum_recursive:
 
-[P, I, C]
+[P, I, C, S]
 
 Your answer for complexity_sum_iterative:
 
-[P, I, C]
+[P, I, C, S]
 
 Your answer for complexity_sum_formula:
 
-[P, I, C]
+[P, I, C, S]
 
-In your own words, compare the P, I, C results obtained, and why did the complexity_sum_formula just produce one path?
+In your own words, compare the P, I, C, S results obtained, and why did the complexity_sum_formula just produce one path?
 
 [Your answer here]
 
@@ -220,25 +222,25 @@ As we want a fair comparison run with overflow checks, you need to change the `C
 overflow-checks = true
 ```
 
-Copy paste the `sum_recursive`, `sum_iterative` and `sum_formula` from lab3 into the `rtt_sum.rs` file.
+Copy paste the `sum_recursive`, `sum_iterative` and `sum_formula` from lab3 into the `rtt_sum.rs` file and report the symex results for the timed_loop function, or what you renamed it to.
 
 - E1) `sum_recursive`
 
 Now, enable (uncomment) the first sum implementation (`sum_recursive`) and run on hardware in `--release` mode.
 
-[Your sum_recursive, cycle-count here]
+[Your sum_recursive, cycle-count here, symex P, symex I, symex C, symex S]
 
 - E2) `sum_iterative`
 
 Now, comment out `sum_recursive` and uncomment `sum_iterative`, and run on hardware in `--release` mode.
 
-[Your sum_iterative, cycle-count here]
+[Your sum_iterative, cycle-count here, symex P, symex I, symex C, symex S]
 
 - E3) `sum_formula`
 
 Finally repeat for `sum_formula`.
 
-[Your sum_formula, cycle-count here]
+[Your sum_formula, cycle-count here, symex P, symex I, symex C, symex S]
 
 If you run with/without cache enabled or even from RAM does not really matter, we are just interested in the relative execution time (so keep it the same for all test-runs). However, use `--release` builds for all cases (in debug/dev mode Rust generates lots of extra overhead that makes comparisons hard to assess).
 
@@ -252,7 +254,7 @@ Discuss in your own words the results in terms of cycle-counts between the sum i
 
 Discuss in your own words the results compared to the `Max number cycles` for the sum implementations. Do you see a correlation between the `symex` results and the actual execution.
 
-Hints, you run under two slightly different ISAs, moreover the underlying processor implementation also differs, thus some deviance is expected. Moreover, the `nrf52840` unless perfectly aligned for the instruction cache has additional OH for instruction fetches and pipeline filling. Based on these insights discuss your obtained results.
+Hints, you run under two slightly different ISAs, moreover the underlying processor implementation also differs, thus some deviance is expected. Moreover, the `nrf52840` unless perfectly aligned for the instruction cache has additional OH for instruction fetches and pi   peline filling. Based on these insights discuss your obtained results.
 
 [Your discussion regarding cycle-counts vs `symex` max number cycles]
 
@@ -290,23 +292,26 @@ Look into the `.cargo/config.toml` and figure out changes needed to make it run 
 
 Once you got it working, make an objdump to confirm that the generated code is the same as in lab3. If not there is still something wrong, go back and fix.
 
-Now repeat E1-3.
+Now repeat E1-3 and re-run symex and report the P,I,C,S values.
 
 - F1) `sum_recursive`
 
-[Your sum_recursive, cycle-count here]
+[Your sum_recursive, cycle-count here, symex P, symex I, symex C, symex S]
 
 Now, comment out `sum_recursive` and uncomment `sum_iterative`, and run on hardware in `--release` mode.
 
 - F2) `sum_iterative`
 
-[Your sum_iterative, cycle-count here]
+[Your sum_iterative, cycle-count here, symex P, symex I, symex C, symex S]
 
 Finally repeat for `sum_formula`.
 
 - F3) `sum_formula`
 
-Discuss in your own words the results obtained (did you get fewer/more cycles etc., when changed ISA).
+[Your sum_formula, cycle-count here, symex P, symex I, symex C, symex S]
+
+
+Discuss in your own words the results obtained (did you get fewer/more cycles etc., when changed ISA), did symex become more or less accurate.
 
 [Discussion here]
 

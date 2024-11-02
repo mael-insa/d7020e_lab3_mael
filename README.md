@@ -91,3 +91,7 @@ rustup target add thumbv6m-none-eabi
 - `ex4`
 
   Here you will prove functional equality by means of symbolic execution. You will also investigate the correlation between instructions executed by `symex` and instructions executed on bare metal hardware.
+
+- `ex5`
+
+  In this example we will see how the symex estimations differ from the real-world measurements.

@@ -40,7 +40,7 @@ fn main() {
     //};
     //println!("attached to nRF52840_xxAA {:?}", session.architecture());
 
-    // 2. Collect binaires to test.
+    // 2. Collect binaries to test.
     // Get the binaries
     let list_of_files = fs::read_dir("test_binaries");
     if list_of_files.is_err() {
@@ -118,7 +118,7 @@ fn measure_hw<P: AsRef<Path>>(path: &P, session: &mut Session) -> u64 {
 
     // Read the first cycle counting register.
     //
-    // See C1.8.6 in the armv7em manual DWT_CYCCNT.
+    // See SYST_CVR in armv7em spec.
     let start = core.read_word_32(0xe000e018).unwrap() & 0x00FFFFFF;
 
     // 4. Run the program until the next breakpoint.
@@ -127,7 +127,9 @@ fn measure_hw<P: AsRef<Path>>(path: &P, session: &mut Session) -> u64 {
     core.wait_for_core_halted(Duration::from_millis(500))
         .unwrap();
 
-    // 5. Read the number of cycles executed at the end of the pogram and compute difference.
+    // 5. Read the number of cycles executed at the end of the program and compute difference.
+    //
+    // See SYST_CVR in armv7em spec.
     let end = core.read_word_32(0xe000e018).unwrap() & 0x00FFFFFF;
 
     // calculate a measured time
