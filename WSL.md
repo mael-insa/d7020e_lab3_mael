@@ -12,7 +12,7 @@ Follow the instructions for installing WSL2 `ubuntu` [here](https://learn.micros
 
 The following has been tested using `Windows Terminal` with `Power Shell`.
 
-Exit any running WSL2 instances and the terminal/prompt you used to install WLS `ubuntu`. 
+Exit any running WSL2 instances and the terminal/prompt you used to install WLS `ubuntu`.
 
 Start a new `Windows Terminal` in user mode (not `Administrator`), and WSL2 `ubuntu` by:
 
@@ -61,9 +61,9 @@ Now you should be able to `cd` to the cloned repo and run:
 
 ```shell
 code .
-``` 
+```
 
- This will use the Windows `vscode` installation so you don't need a local linux install, however you will notice that the plugins you have in windows, if any, needs local install for you WSL domain. So you can now install `rust-analyser`, and other friends of `code`.
+This will use the Windows `vscode` installation so you don't need a local linux install, however you will notice that the plugins you have in windows, if any, needs local install for you WSL domain. So you can now install `rust-analyser`, and other friends of `code`.
 
 ### Installing cargo-symex
 
@@ -78,7 +78,7 @@ sudo apt-get install cmake
 Given this worked out, you should be good to go:
 
 ```shell
-cargo install --git https://github.com/s7rul/symex --branch armv6-m cargo-symex
+cargo install --git https://github.com/ivajon/symex --branch trivial_stack_size cargo-symex
 ```
 
 You can test that you got it right by:
@@ -88,8 +88,3 @@ cargo symex --help
 ```
 
 From this and on you should be able to [continue](README.md#rust-version) happily with the lab, WSL is almost linux :)
-
-
-
-
-

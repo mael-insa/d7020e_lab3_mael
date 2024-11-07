@@ -2,18 +2,20 @@
 runner = "probe-rs run --chip nRF52840_xxAA --protocol swd"
 
 rustflags = [
-    "-C",
-    "linker=flip-link",
+    # "-C",
+    # "linker=flip-link",
     "-C",
     "link-arg=--nmagic",
     "-C",
-    "link-arg=-Tcustom_link.x",
-    "-C",
-    "link-arg=-Tdefmt.x",
-    "-Zemit-stack-sizes",
-    "-Clinker-plugin-lto",
-    "-Clink-arg=-mllvm=-lto-embed-bitcode=optimized",
-    "-Clink-arg=-mllvm=-stack-size-section",
+    "link-arg=-Tlink.x",
+    # "-C",
+    # "link-arg=-Tcustom_link.x",
+    # "-C",
+    # "link-arg=-Tdefmt.x",
+    # "-Zemit-stack-sizes",
+    # "-Clinker-plugin-lto",
+    # "-Clink-arg=-mllvm=-lto-embed-bitcode=optimized",
+    # "-Clink-arg=-mllvm=-stack-size-section",
 
     # Code-size optimizations.
     #   trap unreachable can save a lot of space, but requires nightly compiler.
@@ -29,7 +31,7 @@ rustflags = [
 build-std = ["compiler_builtins", "core"]
 
 [build]
-target = "thumbv7m-none-eabi"
+target = "thumbv7em-none-eabi"
 
-[env]
-DEFMT_LOG = "info"
+# [env]
+# DEFMT_LOG = "info"

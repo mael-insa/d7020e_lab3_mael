@@ -4,7 +4,7 @@ In this exercise we will look at a release build of the `timed_loop` from previo
 
 - Ex2 A1)
 
-  Since we are compiling for a slightly different architecture (the more primitive `armv6m` ISA), we first want to have a look at the generated assembly.
+  Since we are compiling for a slightly different architecture (the more primitive `armv7m` ISA), we first want to have a look at the generated assembly.
 
   ```shell
   cargo objdump --example ex2 --release -- --disassemble > ex2.objdump
@@ -14,7 +14,7 @@ In this exercise we will look at a release build of the `timed_loop` from previo
 
   [Paste assembly here]
 
-  Explain in your own words how the loop counter was initialized to 10000. Hint, confer to the documentation of the instruction set [Cortex-M0+](https://developer.arm.com/documentation/ddi0484/c/CHDCICDF).
+  Explain in your own words how the loop counter was initialized to 10000. Hint, confer to the documentation of the instruction set [Cortex-M4](https://developer.arm.com/documentation/100166/0001/Programmers-Model/Instruction-set-summary/Table-of-processor-instructions?lang=en).
 
   [Your answer here]
 
@@ -42,19 +42,9 @@ In this exercise we will look at a release build of the `timed_loop` from previo
 
   [Your answer here]
 
-  Do the number of cycles reported match your expectations. (Lookup the `nop`, `subs` and `b <cc>` instructions in [Cortex-M0+](https://developer.arm.com/documentation/ddi0484/c/CHDCICDF)).
+  Do the number of cycles reported match your expectations. (Lookup the `nop`, `subs` and `b <cc>` instructions in [Cortex-M4](https://developer.arm.com/documentation/100166/0001/Programmers-Model/Instruction-set-summary/Table-of-processor-instructions?lang=en)).
 
   What do you find?
-
-  [Your answer here]
-
-  As you might have noticed there is a discrepancy. Now lookup the same instructions for the older M0 sibling [Cortex-M0](https://developer.arm.com/documentation/ddi0432/c/programmers-model/instruction-set-summary). These both implement the same `arm6m` ISA, with different to their implementation only.
-
-  What do you find?
-
-  [Your answer here]
-
-  In particular, which implementation M0/M0+, do you infer `symex` to model?
 
   [Your answer here]
 
@@ -62,6 +52,6 @@ In this exercise we will look at a release build of the `timed_loop` from previo
 
 Learning outcomes:
 
-In this exercise you have seen a simple example showing how `symex` can exactly determine the number of clock cycles executed along each path.
+In this exercise you have seen a simple example showing how `symex` can safely estimate the number of clock cycles executed along each path.
 
 In general, the number of paths can be large, so we need additional tooling to collect and extract desired information, here we have just covered the basics.

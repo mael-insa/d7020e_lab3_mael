@@ -1,8 +1,8 @@
 # Symbolic Execution
 
-In this lab you will work with symbolic execution using the [symex](https://github.com/s7rul/symex/tree/armv6-m) crate.
+In this lab you will work with symbolic execution using the [symex](https://github.com/ivajon/symex/tree/trivial_stack_size) crate.
 
-The repository is a fork by LTU student Erik Serrander of the original work [symex](https://github.com/norlen/symex) by LTU student Joacim Norlen.
+The repository is a fork by LTU student Ivar Jönsson of the original work [symex](https://github.com/norlen/symex) by LTU students Joacim Norlen and Erik Serrander.
 
 ## Learning objectives
 
@@ -12,7 +12,7 @@ The repository is a fork by LTU student Erik Serrander of the original work [sym
 
 - General characteristics of low-level symbolic execution:
 
-  In the `armv6` branch, Erik Serrander has extended `symex` with an execution engine for the `armv6m` instruction set (ISA). This allows for detailed/low-level analysis of binary code (extracted from `elf` files).
+  In the `trivial_stack_size` branch, Ivar has extended `symex` with an execution engine for the `armv7em` instruction set (ISA). This allows for detailed/low-level analysis of binary code (extracted from `elf` files).
 
   Benefits of binary level analysis include:
 
@@ -26,11 +26,11 @@ The repository is a fork by LTU student Erik Serrander of the original work [sym
 
   - Performance (analysis at binary level is more detailed at the cost of (typically) increased number of instructions to analyze)
 
-  - An custom execution engine for each target ISA architecture is required (in this case the `armv6m`), whereas target agnostic analysis at LLVM-IR level covers all backends supported by LLVM.
+  - An custom execution engine for each target ISA architecture is required (in this case the `armv7em`), whereas target agnostic analysis at LLVM-IR level covers all backends supported by LLVM.
 
 - General understanding of execution time estimation by path analysis:
 
-  Based on the vendors specification of the `armv6m` ISA the `symex` tool estimates the CPU time fore each path found (and thus the worst case execution time can be estimated).
+  Based on the vendors specification of the `armv7em` ISA the `symex` tool estimates the CPU time fore each path found (and thus the worst case execution time can be estimated).
 
   Overhead due to RAM/FLASH wait states and bus arbitration is currently not modelled in `symex`, however such extension can be developed.
 
@@ -47,13 +47,13 @@ For Windows WSL please confer to [WSL.md](WSL.md).
 `symex` is in early development and has not yet been released through `crates.io`. Instead you can install the tool directly from the git repo.
 
 ```shell
-cargo install --git https://github.com/s7rul/symex --branch armv6-m cargo-symex
+cargo install --git https://github.com/ivajon/symex --branch trivial_stack_size cargo-symex
 ```
 
 Alternatively, if you are interested in looking into the source code/and or play around with the examples in the repository, you may clone the repo and install the tool manually as follows:
 
 - `cd` to some folder outside this repo.
-- `git https://github.com/s7rul/symex/tree/armv6-m`, and
+- `git clone https://github.com/ivajon/symex/tree/trivial_stack_size`, and
 
 - `cd symex`. Now you can install the `cargo-symex` cargo sub command.
 
@@ -65,11 +65,11 @@ If you already have a `cargo-symex` installed you can update an install by addin
 
 Make sure you are on the latest Rust toolchain.
 
-Add the `thumbv6m-none-eabi` compilation target.
+Add the `thumbv7em-none-eabi` compilation target.
 
 ```shell
 rustup update
-rustup target add thumbv6m-none-eabi
+rustup target add thumbv7em-none-eabi
 ```
 
 ---
@@ -92,6 +92,4 @@ rustup target add thumbv6m-none-eabi
 
   Here you will prove functional equality by means of symbolic execution. You will also investigate the correlation between instructions executed by `symex` and instructions executed on bare metal hardware.
 
-- `ex5`
-
-  In this example we will see how the symex estimations differ from the real-world measurements.
+  Here you will also estimate worst case execution time (measured by clock cycles) and worst case stack usage.
