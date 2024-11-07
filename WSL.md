@@ -21,7 +21,7 @@ wsl
 cd
 ```
 
-`wsl` starts the WSL2 `ubuntu`, and by default you will be in the default folder for your `Windows Terminal`. For working in the linux world you want to do `cd`, putting you in your linux home folder. It is adviced for performance and user experience to use the linux file system.
+`wsl` starts the WSL2 `ubuntu`, and by default you will be in the default folder for your `Windows Terminal`. For working in the linux world you want to do `cd`, putting you in your linux home folder. It is advised for performance and user experience to use the linux file system.
 
 ### Installing Rust
 
@@ -63,7 +63,7 @@ Now you should be able to `cd` to the cloned repo and run:
 code .
 ```
 
-This will use the Windows `vscode` installation so you don't need a local linux install, however you will notice that the plugins you have in windows, if any, needs local install for you WSL domain. So you can now install `rust-analyser`, and other friends of `code`.
+This will use the Windows `vscode` installation so you don't need a local linux install, however you will notice that the plugins you have in windows, if any, needs local install for you WSL domain. So you can now install `rust-analyzer`, and other friends of `code`.
 
 ### Installing cargo-symex
 
