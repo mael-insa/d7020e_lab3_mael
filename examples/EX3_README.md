@@ -1,4 +1,4 @@
-# Ex3 NOT WORKING YET
+# Ex3 
 
 In this example we will see how we can model hardware, and verify that the user program accesses the hardware correctly.
 
@@ -76,7 +76,7 @@ Then read the `data` register `n` times (but we don't do anything with the read 
   Run the test.
 
   ```shell
-  cargo symex --example ex3 --function device_test --release
+  cargo symex --elf --example ex3 --function device_test --release
   ```
 
   [Paste your output here]
@@ -89,14 +89,14 @@ Then read the `data` register `n` times (but we don't do anything with the read 
 
   Well, the test itself seems simple enough (nothing that can go wrong here really.)
 
-  However, on closer inspection, we find an error in our model of the functionality. Implicit to the specification, the number of bytes received must be less than 8 (since we have just an 8 byte buffer right).
+  However, on closer inspection, we find an error in our model of the functionality. Implicit to the specification, the number of bytes received must be less or equal to 8 (since we have just an 8 byte buffer right).
 
   Let's fix this problem by the uncommenting the `assume(n <= 8)` statement.
 
   Now let's try again:
 
   ```shell
-  cargo symex --example ex3 --function device_test --release
+  cargo symex --elf --example ex3 --function device_test --release
   ```
 
   [Paste your output here]
@@ -115,14 +115,12 @@ Then read the `data` register `n` times (but we don't do anything with the read 
   Now, let's see what happens:
 
   ```shell
-  cargo symex --example ex3 --function device_test_sum --release
+  cargo symex --elf --example ex3 --function device_test_sum --release
   ```
 
   [Your output here]
 
   In this case you should now have got 9 paths (as usual, if not double check and report problems.)
-
-  So why did we get 9 different paths, well there is now a potential overflow error turning up that the Rust compiler cannot statically prove false (never to happen).
 
   The paths obtained relate to the number for bytes received, 0 bytes, 1 byte, 2 bytes, up to 8. (9 in total).
 
@@ -158,27 +156,28 @@ Then read the `data` register `n` times (but we don't do anything with the read 
   Now re-run the test but pipe it to a file:
 
   ```shell
-  cargo symex --example ex3 --function device_test_sum --release > ex3_a4.txt
+  cargo symex --elf --example ex3 --function device_test_sum --release > ex3_fail.txt
   ```
 
   Now, take a close look at the generated file and identify the first path that led to an error.
 
   [Past your first failing path here]
 
-  Your result should have concrete assignments to 3 Symbolic values:
-  (As usual, double check/report.)
+  Under `Symbolic:` for each test you will find the assigned registers and a set of `any` marked symbolic values. The `any` values are introduced in the `Device` model.
 
-  Explain in your own words what these 3 Symbolic values represent.
+  As seen, the number of generated `any` values differs between reported paths.
 
-  [Your answer here]
+  Explain in your own words for any given path what the first `any` represent and how the remaining number of `any` values related to the first. Also, explain why some paths succeed while other's fail. 
 
   Hint 1: look at the device model code. Where do we introduce symbolic (`any()`) values and in what order. You should be able to see the structure here. Also look at the previous (succeeding) paths, for further context.
 
   Hint 2: what could possibly go wrong in the test? The critical operation here is the `sum += device.data()`.
 
+  [Your answer here]
+
 - Ex4 A5)
 
-  With this analysis at hand, we should now be able to fix the problem in the test. (The model is not wrong here, right.)
+  With this analysis at hand, we should now be able to fix the problem in the test. (The model is not wrong here, the problem was in the test.)
 
   Apply the patch needed, and confirm that you get 9 succeeding paths.
 
@@ -190,9 +189,11 @@ Then read the `data` register `n` times (but we don't do anything with the read 
 
 Although the device has a trivial specification, the example show that we can both create a model of a specification and verify that an application (in this case `device_test`) is correctly using the hardware model.
 
-Now, have a look at the errata for the 52840 v3 (a 40 page document), and you will find numerous examples where design errors have slipped through testing. Notice, this is the 3rd revision in production and the 7th iteration of the chip including Engineering samples. Still it takes 40 pages to list the remaining bugs and suggest mitigations.
+Now, have a look at the errata for the [52840 v3 Errata](https://docs.nordicsemi.com/bundle/errata_nRF52840_Rev3/page/ERR/nRF52840/Rev3/latest/err_840.html) (a 40 page document), and you will find numerous examples where design errors have slipped through testing. Notice, this is the 3rd revision in production and the 7th iteration of the chip including Engineering samples. Still it takes 40 pages to list the remaining bugs and suggest mitigations.
 
-The approach we have taken here focus the functional properties modelled as state and state transitions, and as such does not cover extra functional properties, such as electrical properties and timely behavior. However, at glance, a majority of the bugs listed seems to relate functional behavior. Have a look yourself:
+So, why are the chips produces still broken? (Nordic knows what's wrong, right...) There are numerous reasons, one is cost (taping out a new chip is costly), but more importantly, customers (product owners) are already chipping products based on the broken chips (and learned to live with them). Juggling firmware in a C/C++ based firmware workflow is already a scary proposition - adding further complexity by taking fine grained chip versioning (stepping) into account would make the situation even worse. Thus, for a customer it is typically "safer" to live with the bugs than to maintain different firmware functionality dependent on chip version. (If it ain't totally broken - don't fix it.) This is of course far from ideal as the performance suffers (not being able to utilize the device to its full potential, moreover, the mitigations (software workarounds), may impose further overhead). 
+
+Notice here: The verification approach we have taken here focus the functional properties modelled as state and state transitions, and as such does not cover extra functional properties, such as electrical properties and timely behavior. However, at glance, a majority of the bugs listed in the errata relates functional behavior. Have a look yourself:
 
 ```
 RTC: Register values invalid
@@ -205,6 +206,8 @@ I2S: RXPTRUPD and TXPTRUPD events asserted after STOP
 With that said, the hardware is the easy part. Tools for chip design already include formal verification (model-checking), physics based electrical simulation, rigorous methods to testing etc. etc.
 
 When it comes to firmware design.... typically nothing besides happy hacking until something eventually does not crash.
+
+Later in the course, we will dig deeper into embedded Rust and the way we can leverage on the Rust language and ecosystem to build abstractions of the underlying hardware. In this way, a Rust based workflow facilitates firmware versioning and offers new opportunities to manage various chip steppings.  
 
 Here is where we should focus our effort.
 
