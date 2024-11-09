@@ -31,16 +31,14 @@ pub fn equal_formula_rec(n: u8) {
 Run:
 
 ```shell
-cargo symex --elf --example ex4 --function formula_rec --release
+cargo symex --elf --example ex4 --function equal_formula_rec --release
 ```
 
 However, inherent to symbolic execution, we might run into path explosion. For the `sum_recursive` function, each `n` will render a new path. So the number of paths is linear to `n`. `n` is this case can be any number that fits into a `u8` (so 2\*\*8 = 256). Under the hood, the SMT solver will try to satisfy constraints with increasing complexity, so the execution time is likely exponential in `n`.
 
 This is the worst case scenario for symbolic execution. To mitigate the path explosion problem we have made an assumption to `n < 10`. It is worth to notice that we now only validate correctness for values of `n < 10`. However, we still have reason to believe that if the first 10 comparisons succeed then it is likely that also the 11th would (which generalize to all number of `n` in this particular case). Looking at the code, the only obvious thing that might go wrong is that the result would overflow. The arithmetic sum can be formulated as `n(n+1)/2`, which for the maximum `n` (255) evaluates to 32640, which in turn can be represented by a `u32` (thus the result cannot overflow).
 
-Symbolic execution can be seen as a lightweight approach to program verification. Fully fledged proofs typically require more advanced formal methods.
-
-There exists other (formal) methods to prove functional equality, e.g., deductive program verification using induction [Mathematical induction](https://en.wikipedia.org/wiki/Mathematical_induction).
+Symbolic execution can be seen as a lightweight approach to program verification. Fully fledged proofs typically require more advanced formal methods, e.g., deductive program verification using induction [Mathematical induction](https://en.wikipedia.org/wiki/Mathematical_induction).
 
 Such formal approaches are very powerful but hard to master, and has thus not gained uptake outside of very niche areas (e.g., avionics) as they are considered to hard and costly.
 
@@ -100,44 +98,7 @@ So now we have some 10 PATHs, with concrete assignments of `n` (0, 1 , ..., 9). 
 
 ---
 
-## C) Formula
-
-You might have observed that there is an alternative mathematical formula `sum = n * (n + 1) / 2` that computes the summation of the first `n` natural numbers.
-
-```rust
-// mathematical formula
-fn sum_formula(n: u8) -> u32 {
-    let n: u32 = n as u32;
-    n * (n + 1) / 2
-}
-```
-
-Now let's verify for `n < 10` that `sum_recursive` and `sum_formula` produces the same results.
-
-```rust
-// test equal rec_formula
-pub fn equal_rec_formula() {
-    let n = u8::any();
-    assume(n < 10);
-    assert!(sum_recursive(n) == sum_formula(n));
-}
-```
-
-Run the test:
-
-```shell
-cargo symex --elf --example ex4 --function equal_rec_formula --release
-```
-
-Did the test pass?
-
-[Your answer here]
-
-Hint: The answer should not surprise you.
-
----
-
-## D) The Symex symbolic execution engine
+## C) The Symex symbolic execution engine
 
 Under the hood, symbolic execution operates on a representation of the program at hand.
 
@@ -220,4 +181,4 @@ You should now have gained basic insights into the use of symbolic execution to:
 - Model based (safe) worst case cycle estimations.
 - Worst case stack usage (also for recursive code).
 
-In prior research at LTU, we developed an automated framework that generated concrete input assignments triggering each found path, which was fed to an automated test-bed that replayed each path on the actual target and measured the corresponding execution time. However, this tool was based on `cargo klee`, which is adopting _dynamic_ symbolic execution and thus may be inexact. Moreover, `klee` operates on the LLVM-IR, thus even without approximation, the actual paths running on the target might differ (due to backend code generation and optimizations). Adopting `symex --elf` addresses these shortcomings, and You can take part in developing a further improved worst case execution time (WCET) framework, challenging the best WCET tools!
+In prior research at LTU, we developed an automated framework that generated concrete input assignments triggering each found path, which was fed to an automated test-bed that replayed each path on the actual target and measured the corresponding execution time. However, this tool was based on `cargo klee`, which is adopting _dynamic_ symbolic execution and thus may be inexact. Moreover, `klee` operates on LLVM-IR, thus even without approximation, the actual paths running on the target might differ (due to backend code generation and optimizations). Adopting `symex --elf` addresses these shortcomings, and You can take part in developing a further improved worst case execution time (WCET) framework, challenging the best WCET tools!

@@ -51,14 +51,6 @@ pub fn equal_iter_rec(n: u8) {
     assert!(sum_iterative(n) == sum_recursive(n));
 }
 
-#[no_mangle]
-#[inline(never)]
-// test equal rec_formula
-pub fn equal_rec_formula(n: u8) {
-    assume(n < 10);
-    assert!(sum_recursive(n) == sum_formula(n));
-}
-
 // test complexity sum_recursive
 #[no_mangle]
 #[inline(never)]
@@ -92,7 +84,6 @@ fn main() -> ! {
         core::ptr::read_volatile(&complexity_sum_formula(0));
         core::ptr::read_volatile(&equal_iter_rec(0));
         core::ptr::read_volatile(&equal_formula_rec(0));
-        core::ptr::read_volatile(&equal_rec_formula(0));
     }
     #[allow(clippy::empty_loop)]
     loop {}
