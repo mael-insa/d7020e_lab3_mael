@@ -21,7 +21,7 @@ If you get an error at this point check the install instructions. If still does 
 
 - Ex1 A2) 
   
-  Each path returns with a value (as the function `get_sign` is returning an `i32` typed value). Arguments is stored in the `R0..R3` (additional arguments are passed on the stack). Results come in `R0, R2` (essentially following/extending on the C ABI). For mare info you can look at e.g. [Arm Blog](https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/on-the-aapcs-with-an-application-to-efficient-parameter-passing), or even the ARM official spec [ARM ABI](https://github.com/ARM-software/abi-aa/releases), (but its a lot of info to dig through). 
+  Each path returns with a value (as the function `get_sign` is returning an `i32` typed value). Arguments is stored in the `R0..R3` (additional arguments are passed on the stack). Results come in `R0, R1` (essentially following/extending on the C ABI). For mare info you can look at e.g. [Arm Blog](https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/on-the-aapcs-with-an-application-to-efficient-parameter-passing), or even the ARM official spec [ARM ABI](https://github.com/ARM-software/abi-aa/releases), (but its a lot of info to dig through). 
 
   The register values are written in hex, use a converter e.g., [RapidTables](https://www.rapidtables.com/convert/number/binary-to-decimal.html).
 
@@ -143,7 +143,7 @@ The examples shown are trivial, you could probably have come up with panic:ing s
 
 Already at this point you have learned to reap the benefits of symbolic execution though the `symex` tool is in early stages.
 
-As an aside: Regarding saturating arithmetics, if extreme/optimal performance is required, the Rust compiler allows to exploit hardware supported saturating arithmetics by means of compiler intrinsics (in this case the `saturating_add` intrinsic). However, intrinsics are not yet stabilized thus requires the nightly compiler.
+As an aside: Regarding saturating arithmetics, if extreme/optimal performance is required, the Rust compiler allows to exploit hardware supported saturating arithmetics by means of compiler intrinsics, in this case the [saturating_add](https://doc.rust-lang.org/std/intrinsics/fn.saturating_add.html) intrinsic. However, (this) intrinsic is not yet stabilized thus requires the nightly compiler. 
 
 
 
