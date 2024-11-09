@@ -34,10 +34,10 @@ impl Device {
         // we return an unknown number of bytes received
         #[allow(clippy::let_and_return)]
         let n = u8::any();
-        // assume(n <= 8);
-        // for v in self.buffer[0..n as usize].iter_mut() {
-        //     *v = u8::any()
-        // }
+        //assume(n <= 8);
+        //for v in self.buffer[0..n as usize].iter_mut() {
+        //    *v = u8::any()
+        //}
         n
     }
 
@@ -62,14 +62,14 @@ pub fn device_test() {
 
 #[no_mangle]
 #[inline(never)]
-pub fn device_test_sum() -> u32 {
+pub fn device_test_sum() -> u8 {
     let mut device = Device::reset();
 
     let n = device.received();
 
-    let mut sum: u32 = 0;
+    let mut sum: u8 = 0;
     for _ in 0..n {
-        sum += device.data() as u32;
+        sum += device.data() as u8;
     }
     sum
 }
