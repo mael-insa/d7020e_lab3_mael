@@ -20,8 +20,10 @@
     "mitigations",
     "objdump",
     "rustup",
+    "steppings",
     "struct",
     "symex",
-    "thumbv"
+    "thumbv",
+    "usize"
   ]
 }
