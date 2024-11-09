@@ -69,7 +69,7 @@ pub fn device_test_sum() -> u8 {
 
     let mut sum: u8 = 0;
     for _ in 0..n {
-        sum += device.data() as u8;
+        sum += device.data();
     }
     sum
 }
