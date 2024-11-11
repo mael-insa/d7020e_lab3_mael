@@ -38,7 +38,14 @@ fn addu(v0: u32) -> (u32, u32) {
 #[no_mangle]
 #[inline(never)]
 fn addi(v0: i32) -> (i32, i32) {
-    (v0, v0 + v0)
+    if v0 > i32::MAX/2 {
+        (v0, i32::MAX)
+    } else if v0 < i32::MIN / 2 {
+        (v0, i32::MIN)
+    } else {
+        (v0, v0 + v0)
+    }
+    
 }
 
 #[entry]
