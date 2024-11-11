@@ -27,7 +27,12 @@ fn get_sign(v: i32) -> i32 {
 #[no_mangle]
 #[inline(never)]
 fn addu(v0: u32) -> (u32, u32) {
-    (v0, v0 + v0)
+    if v0 > u32::MAX / 2 {
+        (v0, u32::MAX)
+    } else {
+        (v0, v0 + v0) 
+    }
+    
 }
 
 #[no_mangle]
