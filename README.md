@@ -36,7 +36,7 @@ The repository is a fork by LTU student Ivar Jönsson of the original work [syme
 
 Write a short reflection in your own words below, showing how you gained understanding towards the learning objectives/goals.
 
-[Your reflection here]
+At the end of this lab, I acquired knowledge about symbolic execution. It allows us to see the different paths taken by the code, execution times, stack usage, the number of iterations or clock times required to execute a function. If a path leads to an error: panic, we can now put safeguards in place in the code to avoid them, for example in the event of an oveerflow on a variable. Finally, we can use symbolic execution to compare the performance of two functions that give us the same results in order to determine which is more efficient, which is important for embedded use. We can also analyse disassembled code to understand in detail what the coded functions produce. 
 
 ---
 

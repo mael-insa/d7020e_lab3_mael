@@ -79,7 +79,274 @@ Then read the `data` register `n` times (but we don't do anything with the read 
   cargo symex --elf --example ex3 --function device_test --release
   ```
 
-  [Paste your output here]
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 1 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x00 (8-bits)
+
+  End state:
+      SP: 0x20040000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      LR: 0x00000191 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R0: 0x2003ffe7 (32-bits)
+      R1: 0x00000001 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+  Instructions executed: 20
+  Max number of cycles: 40
+  Stack usage: 44 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 2 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Error: panic
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x0d (8-bits)
+
+  End state:
+      SP: 0x2003ffd0 (32-bits)
+      R5: 0x0000000d (32-bits)
+      PC: 0x0000021a (32-bits)
+      LR: 0x00000175 (32-bits)
+      R6: 0x00000008 (32-bits)
+      R0: 0x00000008 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R7: 0x2003ffd0 (32-bits)
+      R4: 0x2003ffd8 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+  Instructions executed: 154
+  Max number of cycles: 247
+  Stack usage: 48 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 3 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x08 (8-bits)
+
+  End state:
+      SP: 0x20040000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      LR: 0x000001a1 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+  Instructions executed: 142
+  Max number of cycles: 228
+  Stack usage: 44 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 4 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x07 (8-bits)
+
+  End state:
+      SP: 0x20040000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      LR: 0x000001a1 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+  Instructions executed: 127
+  Max number of cycles: 204
+  Stack usage: 44 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 5 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x06 (8-bits)
+
+  End state:
+      SP: 0x20040000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      LR: 0x000001a1 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+  Instructions executed: 112
+  Max number of cycles: 180
+  Stack usage: 44 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 6 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x05 (8-bits)
+
+  End state:
+      SP: 0x20040000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      LR: 0x000001a1 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+  Instructions executed: 97
+  Max number of cycles: 156
+  Stack usage: 44 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 7 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x04 (8-bits)
+
+  End state:
+      SP: 0x20040000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      LR: 0x000001a1 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+  Instructions executed: 82
+  Max number of cycles: 132
+  Stack usage: 44 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 8 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x03 (8-bits)
+
+  End state:
+      SP: 0x20040000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      LR: 0x000001a1 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+  Instructions executed: 67
+  Max number of cycles: 108
+  Stack usage: 44 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 9 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x02 (8-bits)
+
+  End state:
+      SP: 0x20040000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      LR: 0x000001a1 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+  Instructions executed: 52
+  Max number of cycles: 84
+  Stack usage: 44 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 10 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x01 (8-bits)
+
+  End state:
+      SP: 0x20040000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      LR: 0x000001a1 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+  Instructions executed: 37
+  Max number of cycles: 60
+  Stack usage: 44 bytes
 
   You should have encountered an `Error` (if not go back and check, if still no error let me know on Discord).
 
@@ -99,7 +366,248 @@ Then read the `data` register `n` times (but we don't do anything with the read 
   cargo symex --elf --example ex3 --function device_test --release
   ```
 
-  [Paste your output here]
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 1 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x00 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      R1: 0x00000001 (32-bits)
+      R7: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R4: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      LR: 0x000001a1 (32-bits)
+      R11: 0x00000000 (32-bits)
+      R0: 0x00000001 (32-bits)
+      R5: 0x00000000 (32-bits)
+  Instructions executed: 34
+  Max number of cycles: 62
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 2 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x08 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R4: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      LR: 0x000001ad (32-bits)
+      R11: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+  Instructions executed: 156
+  Max number of cycles: 250
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 3 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x07 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R4: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      LR: 0x000001ad (32-bits)
+      R11: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+  Instructions executed: 141
+  Max number of cycles: 226
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 4 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x06 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R4: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      LR: 0x000001ad (32-bits)
+      R11: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+  Instructions executed: 126
+  Max number of cycles: 202
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 5 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x05 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R4: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      LR: 0x000001ad (32-bits)
+      R11: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+  Instructions executed: 111
+  Max number of cycles: 178
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 6 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x04 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R4: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      LR: 0x000001ad (32-bits)
+      R11: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+  Instructions executed: 96
+  Max number of cycles: 154
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 7 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x03 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R4: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      LR: 0x000001ad (32-bits)
+      R11: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+  Instructions executed: 81
+  Max number of cycles: 130
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 8 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x02 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R4: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      LR: 0x000001ad (32-bits)
+      R11: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+  Instructions executed: 66
+  Max number of cycles: 106
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 9 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R11: 0x00000000 (32-bits)
+      any5: 0x01 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      R1: 0x2003ffd8 (32-bits)
+      R2: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R4: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      LR: 0x000001ad (32-bits)
+      R11: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+  Instructions executed: 51
+  Max number of cycles: 82
+  Stack usage: 56 bytes
+  
 
   Now the test should pass!!! (As usual, if your result differ check again, and let me know on Discord if there is a problem.)
 
@@ -118,7 +626,248 @@ Then read the `data` register `n` times (but we don't do anything with the read 
   cargo symex --elf --example ex3 --function device_test_sum --release
   ```
 
-  [Your output here]
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 1 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      any5: 0x00 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      LR: 0x000001e7 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R5: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R1: 0x00000001 (32-bits)
+      R7: 0x00000000 (32-bits)
+  Instructions executed: 35
+  Max number of cycles: 63
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 2 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      any5: 0x08 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      LR: 0x000001f3 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R5: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R1: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+  Instructions executed: 197
+  Max number of cycles: 291
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 3 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      any5: 0x07 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      LR: 0x000001f3 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R5: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R1: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+  Instructions executed: 177
+  Max number of cycles: 262
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 4 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      any5: 0x06 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      LR: 0x000001f3 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R5: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R1: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+  Instructions executed: 157
+  Max number of cycles: 233
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 5 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      any5: 0x05 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      LR: 0x000001f3 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R5: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R1: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+  Instructions executed: 137
+  Max number of cycles: 204
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 6 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      any5: 0x04 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      LR: 0x000001f3 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R5: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R1: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+  Instructions executed: 117
+  Max number of cycles: 175
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 7 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      any5: 0x03 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      LR: 0x000001f3 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R5: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R1: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+  Instructions executed: 97
+  Max number of cycles: 146
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 8 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      any5: 0x02 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      LR: 0x000001f3 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R5: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R1: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+  Instructions executed: 77
+  Max number of cycles: 117
+  Stack usage: 56 bytes
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 9 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Success: returned void
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      any5: 0x01 (8-bits)
+
+  End state:
+      R6: 0x00000000 (32-bits)
+      LR: 0x000001f3 (32-bits)
+      PC: 0xfffffffe (32-bits)
+      R5: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      R0: 0x00000000 (32-bits)
+      R2: 0x00000000 (32-bits)
+      SP: 0x20040000 (32-bits)
+      R4: 0x00000000 (32-bits)
+      R1: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+  Instructions executed: 57
+  Max number of cycles: 88
+  Stack usage: 56 bytes
+
 
   In this case you should now have got 9 paths (as usual, if not double check and report problems.)
 
@@ -149,7 +898,7 @@ Then read the `data` register `n` times (but we don't do anything with the read 
 
   How many paths did you obtain?
 
-  [Your answer here]
+  *I obtain 37 paths for this execution and most of them raised an error*
 
   At this point you should have obtained a significant number of paths, many of them failing with an `Error`. (If not double check and report.)
 
@@ -161,7 +910,34 @@ Then read the `data` register `n` times (but we don't do anything with the read 
 
   Now, take a close look at the generated file and identify the first path that led to an error.
 
-  [Past your first failing path here]
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 3 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Error: panic
+
+  Symbolic:
+      R4: 0x00000000 (32-bits)
+      R5: 0x00000000 (32-bits)
+      R6: 0x00000000 (32-bits)
+      R7: 0x00000000 (32-bits)
+      R8: 0x00000000 (32-bits)
+      any5: 0x02 (8-bits)
+      any6: 0xc0 (8-bits)
+      any7: 0x7e (8-bits)
+
+  End state:
+      R0: 0x0000003e (32-bits)
+      R5: 0x0000013e (32-bits)
+      R7: 0x2003fff8 (32-bits)
+      R4: 0x00000001 (32-bits)
+      SP: 0x2003ffd8 (32-bits)
+      LR: 0x0000037f (32-bits)
+      R1: 0x000000c0 (32-bits)
+      R8: 0x00000002 (32-bits)
+      PC: 0x000003b4 (32-bits)
+      R2: 0x0000007e (32-bits)
+      R6: 0x2003ffd8 (32-bits)
+  Instructions executed: 99
+  Max number of cycles: 147
+  Stack usage: 56 bytes
 
   Under `Symbolic:` for each test you will find the assigned registers and a set of `any` marked symbolic values. The `any` values are introduced in the `Device` model.
 
@@ -173,7 +949,9 @@ Then read the `data` register `n` times (but we don't do anything with the read 
 
   Hint 2: what could possibly go wrong in the test? The critical operation here is the `sum += device.data()`.
 
-  [Your answer here]
+  *The first any is always any5 and this any increases while we have more paths but it didn't increase at every path, it's because our first any gives the number of bytes we will received for this path. Then we have the corresponding number of any values representing the value of each of the bytes. For example, if we have any5 = 0x02, we will have any6 and any7 as random value for the two bytes.*
+
+  *Some paths succeded and other fail due to an overflow of the variable sum. We can simply solve this problem by changing the type of the variable by u16.*
 
 - Ex4 A5)
 

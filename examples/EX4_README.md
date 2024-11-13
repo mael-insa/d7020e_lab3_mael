@@ -52,7 +52,7 @@ However, as we are concerned with the performance (not just correctness) we see 
 
 Formulate in your own words what potential problem(s) you see with this approach.
 
-[Your answer here]
+*With recursive implementations, we can quickly run into problems. Firstly, our recursive function has to be used a large number of times, which will take a long time to finish the program. Secondly, we can run into problems with the stack, because that's the principle of recursion and, at some point, we can exceed the number of values we can put in a stack.*
 
 Hint: What does a recursive call imply in the general case.
 
@@ -152,23 +152,25 @@ For each test, report three values
 
 Your answer for complexity_sum_recursive:
 
-[P, I, C, S]
+[P = 10 , I = 117 , C = 257, S = 160 bytes]
 
 Your answer for complexity_sum_iterative:
 
-[P, I, C, S]
+[P = 10, I = 46, C = 64, S = 32 bytes]
 
 Your answer for complexity_sum_formula:
 
-[P, I, C, S]
+[P = 1, I = 15, C = 23, S = 16 bytes]
 
 In your own words, compare the P, I, C, S results obtained, and why did the complexity_sum_formula just produce one path?
 
-[Your answer here]
+We can see straight away that the recursive method requires many more operations than the iterative method. In fact, the recursive method executes more instructions, takes more cycle time and uses a larger stack.
+
+The complexity_sum_formula function only returns a single path because it performs a simple calculation with n, which is of type u8 and the result is taken in a variable of type u32, so there is no chance of the calculation creating an overflow because at most for n as u8 n=255 i.e. n*(n+1) = 65280 which is a small value compared to the maximum value of a u32 which is 4 294 967 295.
 
 Which one would you consider the best regarding performance?
 
-[Your answer here]
+*Looking at performance, we can clearly see that the iterative method is more efficient than the recursive method in this case.*
 
 ---
 
