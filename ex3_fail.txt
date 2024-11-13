@@ -1,0 +1,1203 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 1 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x00 (8-bits)   #0
+
+End state:
+    R0: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R4: 0x00000000 (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0x00000291 (32-bits)
+    R1: 0x00000001 (32-bits)
+    R8: 0x00000000 (32-bits)
+    PC: 0xfffffffe (32-bits)
+    R6: 0x00000000 (32-bits)
+Instructions executed: 39
+Max number of cycles: 67
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 2 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x01 (8-bits)  #1
+    any6: 0x00 (8-bits)  #0
+
+End state:
+    R0: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R4: 0x00000000 (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0x00000353 (32-bits)
+    R1: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    PC: 0xfffffffe (32-bits)
+    R2: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+Instructions executed: 73
+Max number of cycles: 110
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 3 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x02 (8-bits)  #2
+    any6: 0xc0 (8-bits)  #192
+    any7: 0x7e (8-bits)  #126
+
+End state:
+    R0: 0x0000003e (32-bits)
+    R5: 0x0000013e (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000001 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000c0 (32-bits)
+    R8: 0x00000002 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x0000007e (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 99
+Max number of cycles: 147
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 4 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x02 (8-bits)  #2
+    any6: 0x80 (8-bits)  #128
+    any7: 0x3e (8-bits)  #62
+
+End state:
+    R0: 0x000000be (32-bits)
+    R5: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R4: 0x00000000 (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0x00000353 (32-bits)
+    R1: 0x00000080 (32-bits)
+    R8: 0x00000000 (32-bits)
+    PC: 0xfffffffe (32-bits)
+    R2: 0x0000003e (32-bits)
+    R6: 0x00000000 (32-bits)
+Instructions executed: 105
+Max number of cycles: 154
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 5 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x03 (8-bits)   #3
+    any6: 0x80 (8-bits)   #128
+    any7: 0xfe (8-bits)   #254
+    any8: 0x00 (8-bits)   #0
+
+End state:
+    R0: 0x0000007e (32-bits)
+    R5: 0x0000017e (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000001 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x00000080 (32-bits)
+    R8: 0x00000003 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000fe (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 111
+Max number of cycles: 162
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 6 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x03 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x7e (8-bits)
+    any8: 0x81 (8-bits)
+
+End state:
+    R0: 0x00000000 (32-bits)
+    R5: 0x00000100 (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000002 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000003 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x00000081 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 131
+Max number of cycles: 191
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 7 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x03 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x7e (8-bits)
+    any8: 0x80 (8-bits)
+
+End state:
+    R0: 0x000000ff (32-bits)
+    R5: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R4: 0x00000000 (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0x00000353 (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000000 (32-bits)
+    PC: 0xfffffffe (32-bits)
+    R2: 0x00000080 (32-bits)
+    R6: 0x00000000 (32-bits)
+Instructions executed: 137
+Max number of cycles: 198
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 8 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x04 (8-bits)
+    any6: 0x81 (8-bits)
+    any7: 0xfe (8-bits)
+    any8: 0x80 (8-bits)
+    any9: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000007f (32-bits)
+    R5: 0x0000017f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000001 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x00000081 (32-bits)
+    R8: 0x00000004 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000fe (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 123
+Max number of cycles: 177
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 9 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x04 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x7e (8-bits)
+    any8: 0xc0 (8-bits)
+    any9: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000003f (32-bits)
+    R5: 0x0000013f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000002 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000004 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000c0 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 143
+Max number of cycles: 206
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 10 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x04 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x7e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x81 (8-bits)
+
+End state:
+    R0: 0x00000000 (32-bits)
+    R5: 0x00000100 (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000003 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000004 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x00000081 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 163
+Max number of cycles: 235
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 11 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x04 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x7e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x01 (8-bits)
+
+End state:
+    R0: 0x00000080 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R4: 0x00000000 (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0x00000353 (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000000 (32-bits)
+    PC: 0xfffffffe (32-bits)
+    R2: 0x00000001 (32-bits)
+    R6: 0x00000000 (32-bits)
+Instructions executed: 169
+Max number of cycles: 242
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 12 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x05 (8-bits)
+    any6: 0x81 (8-bits)
+    any7: 0xfe (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x01 (8-bits)
+    any10: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000007f (32-bits)
+    R5: 0x0000017f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000001 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x00000081 (32-bits)
+    R8: 0x00000005 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000fe (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 135
+Max number of cycles: 192
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 13 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x05 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x7e (8-bits)
+    any8: 0xc0 (8-bits)
+    any9: 0x41 (8-bits)
+    any10: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000003f (32-bits)
+    R5: 0x0000013f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000002 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000005 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000c0 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 155
+Max number of cycles: 221
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 14 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x05 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x7e (8-bits)
+    any8: 0x80 (8-bits)
+    any9: 0x80 (8-bits)
+    any10: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000007f (32-bits)
+    R5: 0x0000017f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000003 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000ff (32-bits)
+    R8: 0x00000005 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x00000080 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 175
+Max number of cycles: 250
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 15 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x05 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x7e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x80 (8-bits)
+    any10: 0x81 (8-bits)
+
+End state:
+    R0: 0x00000080 (32-bits)
+    R5: 0x00000180 (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000004 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000ff (32-bits)
+    R8: 0x00000005 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x00000081 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 195
+Max number of cycles: 279
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 16 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x05 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x7e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x00 (8-bits)
+    any10: 0x01 (8-bits)
+
+End state:
+    R0: 0x00000080 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R4: 0x00000000 (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0x00000353 (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000000 (32-bits)
+    PC: 0xfffffffe (32-bits)
+    R2: 0x00000001 (32-bits)
+    R6: 0x00000000 (32-bits)
+Instructions executed: 201
+Max number of cycles: 286
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 17 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x06 (8-bits)
+    any6: 0x81 (8-bits)
+    any7: 0xfe (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x00 (8-bits)
+    any10: 0x01 (8-bits)
+    any11: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000007f (32-bits)
+    R5: 0x0000017f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000001 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x00000081 (32-bits)
+    R8: 0x00000006 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000fe (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 147
+Max number of cycles: 207
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 18 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x06 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x7e (8-bits)
+    any8: 0xc0 (8-bits)
+    any9: 0x40 (8-bits)
+    any10: 0x01 (8-bits)
+    any11: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000003f (32-bits)
+    R5: 0x0000013f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000002 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000006 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000c0 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 167
+Max number of cycles: 236
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 19 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x06 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x7e (8-bits)
+    any8: 0x40 (8-bits)
+    any9: 0x41 (8-bits)
+    any10: 0x7f (8-bits)
+    any11: 0x00 (8-bits)
+
+End state:
+    R0: 0x00000000 (32-bits)
+    R5: 0x00000100 (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000003 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000bf (32-bits)
+    R8: 0x00000006 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x00000041 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 187
+Max number of cycles: 265
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 20 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x06 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x9d (8-bits)
+    any10: 0x83 (8-bits)
+    any11: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000007f (32-bits)
+    R5: 0x0000017f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000004 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000fc (32-bits)
+    R8: 0x00000006 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x00000083 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 207
+Max number of cycles: 294
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 21 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x06 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x1d (8-bits)
+    any10: 0x83 (8-bits)
+    any11: 0x01 (8-bits)
+
+End state:
+    R0: 0x00000000 (32-bits)
+    R5: 0x00000100 (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000005 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000ff (32-bits)
+    R8: 0x00000006 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x00000001 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 227
+Max number of cycles: 323
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 22 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x06 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x1d (8-bits)
+    any10: 0x03 (8-bits)
+    any11: 0x01 (8-bits)
+
+End state:
+    R0: 0x00000080 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R4: 0x00000000 (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0x00000353 (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000000 (32-bits)
+    PC: 0xfffffffe (32-bits)
+    R2: 0x00000001 (32-bits)
+    R6: 0x00000000 (32-bits)
+Instructions executed: 233
+Max number of cycles: 330
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 23 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x07 (8-bits)
+    any6: 0x81 (8-bits)
+    any7: 0xde (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x1d (8-bits)
+    any10: 0x03 (8-bits)
+    any11: 0x01 (8-bits)
+    any12: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000005f (32-bits)
+    R5: 0x0000015f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000001 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x00000081 (32-bits)
+    R8: 0x00000007 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000de (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 159
+Max number of cycles: 222
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 24 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x07 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0xc0 (8-bits)
+    any9: 0x5d (8-bits)
+    any10: 0x03 (8-bits)
+    any11: 0x01 (8-bits)
+    any12: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000001f (32-bits)
+    R5: 0x0000011f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000002 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x0000005f (32-bits)
+    R8: 0x00000007 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000c0 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 179
+Max number of cycles: 251
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 25 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x07 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x80 (8-bits)
+    any9: 0x9d (8-bits)
+    any10: 0x03 (8-bits)
+    any11: 0x01 (8-bits)
+    any12: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000007c (32-bits)
+    R5: 0x0000017c (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000003 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000df (32-bits)
+    R8: 0x00000007 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x0000009d (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 199
+Max number of cycles: 280
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 26 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x07 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x9d (8-bits)
+    any10: 0xc3 (8-bits)
+    any11: 0xc1 (8-bits)
+    any12: 0x00 (8-bits)
+
+End state:
+    R0: 0x000000bf (32-bits)
+    R5: 0x000001bf (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000004 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000fc (32-bits)
+    R8: 0x00000007 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000c3 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 219
+Max number of cycles: 309
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 27 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x07 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x1d (8-bits)
+    any10: 0x83 (8-bits)
+    any11: 0x01 (8-bits)
+    any12: 0x00 (8-bits)
+
+End state:
+    R0: 0x00000000 (32-bits)
+    R5: 0x00000100 (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000005 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000ff (32-bits)
+    R8: 0x00000007 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x00000001 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 239
+Max number of cycles: 338
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 28 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x07 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x1d (8-bits)
+    any10: 0x02 (8-bits)
+    any11: 0x01 (8-bits)
+    any12: 0x81 (8-bits)
+
+End state:
+    R0: 0x00000000 (32-bits)
+    R5: 0x00000100 (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000006 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000007 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x00000081 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 259
+Max number of cycles: 367
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x07 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x1d (8-bits)
+    any10: 0x02 (8-bits)
+    any11: 0x01 (8-bits)
+    any12: 0x01 (8-bits)
+
+End state:
+    R0: 0x00000080 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R4: 0x00000000 (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0x00000353 (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000000 (32-bits)
+    PC: 0xfffffffe (32-bits)
+    R2: 0x00000001 (32-bits)
+    R6: 0x00000000 (32-bits)
+Instructions executed: 265
+Max number of cycles: 374
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 30 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x08 (8-bits)
+    any6: 0x81 (8-bits)
+    any7: 0xde (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x1d (8-bits)
+    any10: 0x02 (8-bits)
+    any11: 0x01 (8-bits)
+    any12: 0x01 (8-bits)
+    any13: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000005f (32-bits)
+    R5: 0x0000015f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000001 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x00000081 (32-bits)
+    R8: 0x00000008 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000de (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 169
+Max number of cycles: 232
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 31 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x08 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0xc0 (8-bits)
+    any9: 0x5d (8-bits)
+    any10: 0x02 (8-bits)
+    any11: 0x01 (8-bits)
+    any12: 0x01 (8-bits)
+    any13: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000001f (32-bits)
+    R5: 0x0000011f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000002 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x0000005f (32-bits)
+    R8: 0x00000008 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000c0 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 189
+Max number of cycles: 261
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 32 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x08 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x80 (8-bits)
+    any9: 0x9d (8-bits)
+    any10: 0x02 (8-bits)
+    any11: 0x01 (8-bits)
+    any12: 0x01 (8-bits)
+    any13: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000007c (32-bits)
+    R5: 0x0000017c (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000003 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000df (32-bits)
+    R8: 0x00000008 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x0000009d (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 209
+Max number of cycles: 290
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 33 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x08 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x9d (8-bits)
+    any10: 0xc2 (8-bits)
+    any11: 0xc1 (8-bits)
+    any12: 0x01 (8-bits)
+    any13: 0x00 (8-bits)
+
+End state:
+    R0: 0x000000be (32-bits)
+    R5: 0x000001be (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000004 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000fc (32-bits)
+    R8: 0x00000008 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x000000c2 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 229
+Max number of cycles: 319
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 34 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x08 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x1d (8-bits)
+    any10: 0x82 (8-bits)
+    any11: 0x81 (8-bits)
+    any12: 0x01 (8-bits)
+    any13: 0x00 (8-bits)
+
+End state:
+    R0: 0x0000007f (32-bits)
+    R5: 0x0000017f (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000005 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000fe (32-bits)
+    R8: 0x00000008 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x00000081 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 249
+Max number of cycles: 348
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 35 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x08 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x1d (8-bits)
+    any10: 0x02 (8-bits)
+    any11: 0x01 (8-bits)
+    any12: 0x81 (8-bits)
+    any13: 0x00 (8-bits)
+
+End state:
+    R0: 0x00000000 (32-bits)
+    R5: 0x00000100 (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000006 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000008 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x00000081 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 269
+Max number of cycles: 377
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 36 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x08 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x1d (8-bits)
+    any10: 0x01 (8-bits)
+    any11: 0x01 (8-bits)
+    any12: 0x81 (8-bits)
+    any13: 0x81 (8-bits)
+
+End state:
+    R0: 0x00000080 (32-bits)
+    R5: 0x00000180 (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    R4: 0x00000007 (32-bits)
+    SP: 0x2003ffd8 (32-bits)
+    LR: 0x0000037f (32-bits)
+    R1: 0x000000ff (32-bits)
+    R8: 0x00000008 (32-bits)
+    PC: 0x000003b4 (32-bits)
+    R2: 0x00000081 (32-bits)
+    R6: 0x2003ffd8 (32-bits)
+Instructions executed: 289
+Max number of cycles: 406
+Stack usage: 56 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 37 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R4: 0x00000000 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R6: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R8: 0x00000000 (32-bits)
+    any5: 0x08 (8-bits)
+    any6: 0x01 (8-bits)
+    any7: 0x5e (8-bits)
+    any8: 0x00 (8-bits)
+    any9: 0x1d (8-bits)
+    any10: 0x01 (8-bits)
+    any11: 0x01 (8-bits)
+    any12: 0x01 (8-bits)
+    any13: 0x01 (8-bits)
+
+End state:
+    R0: 0x00000080 (32-bits)
+    R5: 0x00000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+    R4: 0x00000000 (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0x00000353 (32-bits)
+    R1: 0x0000007f (32-bits)
+    R8: 0x00000000 (32-bits)
+    PC: 0xfffffffe (32-bits)
+    R2: 0x00000001 (32-bits)
+    R6: 0x00000000 (32-bits)
+Instructions executed: 295
+Max number of cycles: 413
+Stack usage: 56 bytes
+
+time: 14.141248116s

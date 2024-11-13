@@ -1,0 +1,56 @@
+
+ex2:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+00000100 <__stext>:
+     100: f000 f82c    	bl	0x15c <__pre_init>      @ imm = #0x58
+     104: 4808         	ldr	r0, [pc, #0x20]         @ 0x128 <__stext+0x28>
+     106: 4909         	ldr	r1, [pc, #0x24]         @ 0x12c <__stext+0x2c>
+     108: 2200         	movs	r2, #0x0
+     10a: 4281         	cmp	r1, r0
+     10c: d001         	beq	0x112 <__stext+0x12>    @ imm = #0x2
+     10e: c004         	stm	r0!, {r2}
+     110: e7fb         	b	0x10a <__stext+0xa>     @ imm = #-0xa
+     112: 4807         	ldr	r0, [pc, #0x1c]         @ 0x130 <__stext+0x30>
+     114: 4907         	ldr	r1, [pc, #0x1c]         @ 0x134 <__stext+0x34>
+     116: 4a08         	ldr	r2, [pc, #0x20]         @ 0x138 <__stext+0x38>
+     118: 4281         	cmp	r1, r0
+     11a: d002         	beq	0x122 <__stext+0x22>    @ imm = #0x4
+     11c: ca08         	ldm	r2!, {r3}
+     11e: c008         	stm	r0!, {r3}
+     120: e7fa         	b	0x118 <__stext+0x18>    @ imm = #-0xc
+     122: f000 f811    	bl	0x148 <main>            @ imm = #0x22
+     126: de00         	udf	#0x0
+     128: 00 00 00 20  	.word	0x20000000
+     12c: 00 00 00 20  	.word	0x20000000
+     130: 00 00 00 20  	.word	0x20000000
+     134: 00 00 00 20  	.word	0x20000000
+     138: 60 01 00 00  	.word	0x00000160
+
+0000013c <timed_loop>:
+     13c: f242 7010    	movw	r0, #0x2710
+     140: 3801         	subs	r0, #0x1
+     142: bf00         	nop
+     144: d1fc         	bne	0x140 <timed_loop+0x4>  @ imm = #-0x8
+     146: 4770         	bx	lr
+
+00000148 <main>:
+     148: b580         	push	{r7, lr}
+     14a: 466f         	mov	r7, sp
+     14c: f000 f800    	bl	0x150 <ex2::__cortex_m_rt_main::h80440c2082ebb4d0> @ imm = #0x0
+
+00000150 <ex2::__cortex_m_rt_main::h80440c2082ebb4d0>:
+     150: b580         	push	{r7, lr}
+     152: 466f         	mov	r7, sp
+     154: f7ff fff2    	bl	0x13c <timed_loop>      @ imm = #-0x1c
+     158: e7fe         	b	0x158 <ex2::__cortex_m_rt_main::h80440c2082ebb4d0+0x8> @ imm = #-0x4
+
+0000015a <WDT>:
+     15a: e7fe         	b	0x15a <WDT>             @ imm = #-0x4
+
+0000015c <__pre_init>:
+     15c: 4770         	bx	lr
+
+0000015e <HardFault_>:
+     15e: e7fe         	b	0x15e <HardFault_>      @ imm = #-0x4
