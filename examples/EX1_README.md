@@ -13,7 +13,58 @@ If you get an error at this point check the install instructions. If still does 
 
 - Ex1 A1)
 
-  [Paste your output here]
+  *Output :*
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 1 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R0: 0x00000001 (32-bits)
+
+End state:
+    R1: 0x00000001 (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0xfffffffe (32-bits)
+    R0: 0x00000001 (32-bits)
+    PC: 0xfffffffe (32-bits)
+Instructions executed: 9
+Max number of cycles: 10
+Stack usage: 0 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 2 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R0: 0x80000001 (32-bits)
+
+End state:
+    R1: 0xffffffff (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0xfffffffe (32-bits)
+    R0: 0xffffffff (32-bits)
+    PC: 0xfffffffe (32-bits)
+Instructions executed: 9
+Max number of cycles: 9
+Stack usage: 0 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 3 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R0: 0x00000000 (32-bits)
+
+End state:
+    R1: 0x00000000 (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0xfffffffe (32-bits)
+    R0: 0x00000000 (32-bits)
+    PC: 0xfffffffe (32-bits)
+Instructions executed: 9
+Max number of cycles: 9
+Stack usage: 0 bytes
+
+time: 6.383128ms
+
 
   If everything worked out correctly `symex` will report three paths (PATH 1, PATH 2 and PATH 3).
 
@@ -29,21 +80,21 @@ If you get an error at this point check the install instructions. If still does 
   
   Path 1
   
-  [Which input value v as a signed integer in decimal]
+  *Input : 1*
 
-  [Which result value as a signed integer in decimal]
+  *Result : 1*
 
   Path 2
   
-  [Which input value v as a signed integer in decimal]
+  *Input : -2147483647*
 
-  [Which result value as a signed integer in decimal]
+  *Result : -1*
 
   Path 3
   
-  [Which input value v as a signed integer in decimal]
+  *Input : 0*
 
-  [Which result value as a signed integer in decimal]
+  *Result : 0*
 
 - Ex1 B1)
 
@@ -54,18 +105,60 @@ If you get an error at this point check the install instructions. If still does 
   ```shell
   cargo symex --elf --example ex1 --function addu
   ```
+  *Output :*
 
-  [Paste output here]
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 1 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R0: 0x00000000 (32-bits)
+
+End state:
+    PC: 0xfffffffe (32-bits)
+    SP: 0x20040000 (32-bits)
+    LR: 0xfffffffe (32-bits)
+    R0: 0x00000000 (32-bits)
+    R1: 0x00000000 (32-bits)
+Instructions executed: 3
+Max number of cycles: 5
+Stack usage: 0 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 2 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R0: 0x80000000 (32-bits)
+    R7: 0x00000000 (32-bits)
+
+End state:
+    PC: 0x000001d8 (32-bits)
+    SP: 0x2003fff8 (32-bits)
+    LR: 0x00000167 (32-bits)
+    R0: 0x00000210 (32-bits)
+    R1: 0x00000000 (32-bits)
+    R7: 0x2003fff8 (32-bits)
+Instructions executed: 8
+Max number of cycles: 11
+Stack usage: 8 bytes
+
+time: 6.497159ms
+
 
   Rust is designed for safety, so it generates a panic (by default) if an unsigned integer addition overflows (or rather wraps around under modular arithmetics).
 
   [Which input value in unsigned integer in decimal triggered the panic]
 
+  *Input that triggered the panic : R0 = 0 and R7 = 2147483647*
+
   You should also have a success path.
 
   [Which input value in unsigned integer in decimal triggered the success path]
 
+  *Input that triggered the succes : 0*
+
   [Which was the corresponding result (R1) in unsigned decimal]
+
+  *Corresponding result : 0*
 
   Now fix the code such that it returns the `u32::MAX` in case the value would wrap. Hint, you can use an `if then else` expression here.
 
@@ -73,17 +166,25 @@ If you get an error at this point check the install instructions. If still does 
 
   How many paths did you have.
 
-  [Your answer here]
+  *I get two paths*
 
   Now let us analyze the paths.
 
   [Which input value in unsigned integer in decimal triggered a normal add]
 
+  *Input value that triggered a normal add : 2147483646*
+
   [Which was the corresponding result (R1) in unsigned decimal]
+
+  *Corresponding result : R1 = 4294967292*
 
   [Which input value in unsigned integer in decimal triggered a saturating add]
 
+  *Input value that trigger a saturating add : 4294967294*
+
   [Which was the corresponding result (R1) in unsigned decimal]
+
+  *Corresponding result : R1 = 4294967295*
 
   Add/commit/push as a new git branch `B1`.
 
@@ -97,17 +198,58 @@ If you get an error at this point check the install instructions. If still does 
   cargo symex --elf --example ex1 --function addi
   ```
 
-  [Paste output here]
+  *Output :*
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 1 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Success: returned void
+
+Symbolic:
+    R0: 0xffffffff (32-bits)
+
+End state:
+    LR: 0xfffffffe (32-bits)
+    R0: 0xffffffff (32-bits)
+    PC: 0xfffffffe (32-bits)
+    R1: 0xfffffffe (32-bits)
+    SP: 0x20040000 (32-bits)
+Instructions executed: 3
+Max number of cycles: 5
+Stack usage: 0 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PATH 2 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Error: panic
+
+Symbolic:
+    R0: 0x7fffffff (32-bits)
+    R7: 0x00000000 (32-bits)
+
+End state:
+    LR: 0x00000175 (32-bits)
+    R0: 0x00000208 (32-bits)
+    PC: 0x000001d0 (32-bits)
+    R1: 0xfffffffe (32-bits)
+    R7: 0x2003fff8 (32-bits)
+    SP: 0x2003fff8 (32-bits)
+Instructions executed: 8
+Max number of cycles: 11
+Stack usage: 8 bytes
+
 
   Rust is designed for safety, so it generates a panic (by default) if a signed integer addition overflows.
 
   [Which input value in signed integer in decimal triggered the panic]
 
+  *Input that triggered the panic : R0 = 2147483647 and R7 = 0*
+
   You should also have a success path.
 
   [Which input value in signed integer in decimal triggered the success path]
 
+  *Input that triggered the succes : 4294967295*
+
   [Which was the corresponding result (R1) in signed decimal]
+
+  *Corresponding result : R1 = 4294967294*
 
   Now fix the code such that it returns the `i32::MAX` in case the value would overflow on the positive side and `i32::MIN` if it would overflow on the negative side. Hint, you can use a nested `if then else` expression here.
 
@@ -115,21 +257,33 @@ If you get an error at this point check the install instructions. If still does 
 
   How many paths did you have.
 
-  [Your answer here]
+  *I get three paths*
 
   Now let us analyze the paths.
 
   [Which input value in signed integer in decimal triggered a normal add]
 
+  *Input value that triggered a normal add : 0*
+
   [Which was the corresponding result (R1) in signed decimal]
+
+  *Corresponding result : R1 = 0*
 
   [Which input value in unsigned integer in decimal triggered a positive saturating add]
 
+  *Input value that triggered a positive saturating add : 2147483647*
+
   [Which was the corresponding result (R1) in unsigned decimal]
+
+  *Corresponding result : R1 = 2147483647*
 
   [Which input value in unsigned integer in decimal triggered a negative saturating add]
 
+  *Input value that triggered a negative saturating add : -2147483648*
+
   [Which was the corresponding result (R1) in unsigned decimal]
+
+  *Corresponding result : R1 = -2147483648*
 
   Add/commit/push as a new git branch `B2`.
 
